@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le :  Dim 27 jan. 2019 à 12:56
+-- Généré le :  mar. 29 jan. 2019 à 09:17
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.1.25
 
@@ -37,15 +37,17 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `registrationDate` date NOT NULL,
   `activate` tinyint(1) DEFAULT NULL,
-  `confirmKey` int(255) NOT NULL
+  `confirmKey` varchar(255) NOT NULL,
+  `restoreKey` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `firstName`, `lastName`, `mail`, `login`, `password`, `registrationDate`, `activate`, `confirmKey`) VALUES
-(1, 'Rezgui', 'Malek', 'm.rezgui12@gmail.com', 'marezgui', '$2y$10$TVHivRPXXtgMl/Ddn21QWOwDpXCToOPe6DILlqc8QQIoIebFwqxbu', '2019-01-27', 0, 777);
+INSERT INTO `users` (`id`, `firstName`, `lastName`, `mail`, `login`, `password`, `registrationDate`, `activate`, `confirmKey`, `restoreKey`) VALUES
+(1, 'Rezgui', 'Malek', 'm.rezgui12@gmail.com', 'marezgui', '$2y$10$kcxBrl5LkNSCR4.Lj/GrT.ORjCCZMHB8G6wSHwF/E3WJSx3Beg5f6', '2019-01-27', 1, '777', NULL),
+(3, 'test', 'test', 'test@test.fr', 'test', '$2y$10$QyJmSZK0lJk7Gn4NsxIMIOQNIm1hOuFC2jfWo95LV6vDDJkD7uMEm', '2019-01-29', 1, '362e80d4df43b03ae6d3f8540cd63626', NULL);
 
 --
 -- Index pour les tables déchargées
@@ -65,7 +67,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
