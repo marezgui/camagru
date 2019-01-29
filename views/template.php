@@ -34,7 +34,7 @@
         <nav id="nav">
             <ul>
                 <li><a href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/index.php' ?>"><i class="fas fa-home"></i></a></li>
-                <li><a href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/#' ?>" ><i class="fas fa-camera-retro"></i></a></li>
+                <li><a href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/montage.php' ?>" ><i class="fas fa-camera-retro"></i></a></li>
                 
                 <?php 
                     if (isset($_SESSION['login']) && !empty($_SESSION['login']))
