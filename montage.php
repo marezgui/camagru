@@ -13,15 +13,15 @@
 
 	<input type="radio" id="Choice1" name="filtre" value="billet">
 	<label for="Choice1">Billet</label>
-	<img id="billet" src="public/images/billet.png">
+	<img id="billet" src="public/images/filtre/billet.png">
 
 	<input type="radio" id="Choice2" name="filtre" value="kitten" checked>
 	<label for="Choice2">Chaton</label>
-	<img id="kitten" src="public/images/kitten.png">
+	<img id="kitten" src="public/images/filtre/kitten.png">
 
 	<input type="radio" id="Choice3" name="filtre" value="cigare">
 	<label for="Choice3">Cigare</label>
-	<img id="cigare" src="public/images/cigare.png">
+	<img id="cigare" src="public/images/filtre/cigare.png">
 </form>
 
 <script src="public/js/montage.js"></script>
