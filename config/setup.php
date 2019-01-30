@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le :  mer. 30 jan. 2019 à 07:20
+-- Généré le :  mer. 30 jan. 2019 à 15:47
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.1.25
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `camagru`
 --
+CREATE DATABASE IF NOT EXISTS `camagru` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `camagru`;
 
 -- --------------------------------------------------------
 
@@ -31,23 +33,38 @@ SET time_zone = "+00:00";
 CREATE TABLE `comments` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
-  `id_img` int(11) NOT NULL,
-  `comment` int(11) NOT NULL,
+  `id_image` int(11) NOT NULL,
+  `comment` text NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `comments`
+--
+
+INSERT INTO `comments` (`id`, `id_user`, `id_image`, `comment`, `date`) VALUES
+(1, 1, 3, 'Hello World !', '2019-01-30 17:12:54');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `galerie`
+-- Structure de la table `images`
 --
 
-CREATE TABLE `galerie` (
+CREATE TABLE `images` (
   `id` int(11) NOT NULL,
   `id_user` int(255) NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `path` varchar(255) NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `images`
+--
+
+INSERT INTO `images` (`id`, `id_user`, `path`, `date`) VALUES
+(3, 1, 'no-image.png', '2019-01-30 17:10:07'),
+(4, 1, 'no-image copy.png', '2019-01-30 23:22:00');
 
 -- --------------------------------------------------------
 
@@ -58,8 +75,17 @@ CREATE TABLE `galerie` (
 CREATE TABLE `likes` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
-  `id_img` int(11) NOT NULL
+  `id_image` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `likes`
+--
+
+INSERT INTO `likes` (`id`, `id_user`, `id_image`) VALUES
+(1, 1, 3),
+(2, 0, 0),
+(3, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -85,8 +111,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstName`, `lastName`, `mail`, `login`, `password`, `registrationDate`, `activate`, `confirmKey`, `restoreKey`) VALUES
-(1, 'Rezgui', 'Malek', 'm.rezgui12@gmail.com', 'marezgui', '$2y$10$kcxBrl5LkNSCR4.Lj/GrT.ORjCCZMHB8G6wSHwF/E3WJSx3Beg5f6', '2019-01-27 00:00:00', 1, '777', NULL),
-(3, 'test', 'test', 'test@test.fr', 'test', '$2y$10$QyJmSZK0lJk7Gn4NsxIMIOQNIm1hOuFC2jfWo95LV6vDDJkD7uMEm', '2019-01-29 00:00:00', 1, '362e80d4df43b03ae6d3f8540cd63626', NULL);
+(1, 'Rezgui', 'Malek', 'm.rezgui12@gmail.com', 'marezgui', '$2y$10$kcxBrl5LkNSCR4.Lj/GrT.ORjCCZMHB8G6wSHwF/E3WJSx3Beg5f6', '2019-01-27 00:00:00', 1, '777', NULL);
 
 --
 -- Index pour les tables déchargées
@@ -99,9 +124,9 @@ ALTER TABLE `comments`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `galerie`
+-- Index pour la table `images`
 --
-ALTER TABLE `galerie`
+ALTER TABLE `images`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -124,25 +149,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT pour la table `galerie`
+-- AUTO_INCREMENT pour la table `images`
 --
-ALTER TABLE `galerie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `images`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
