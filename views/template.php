@@ -34,12 +34,13 @@
         <nav id="nav">
             <ul>
                 <li><a href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/index.php' ?>"><i class="fas fa-home"></i></a></li>
-                <li><a href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/montage.php' ?>" ><i class="fas fa-camera-retro"></i></a></li>
+                <li><a href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/galerie.php' ?>" ><i class="far fa-images"></i></a></li>
                 
                 <?php 
                     if (isset($_SESSION['login']) && !empty($_SESSION['login']))
                     {
                 ?>
+                        <li><a href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/montage.php' ?>" ><i class="fas fa-camera-retro"></i></a></li>
                         <li>
                             <a href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/views/manage.php' ?>">
                                 <i class="fas fa-user-circle"></i>
@@ -58,6 +59,7 @@
                     else
                     {
                 ?>
+                        <li><a href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/montageGuest.php' ?>" ><i class="fas fa-camera-retro"></i></a></li>
                         <li>
                             <a href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/views/inscription.php' ?>">
                                 <i class="fas fa-file-alt"></i>
