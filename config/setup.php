@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le :  mar. 29 jan. 2019 à 09:17
+-- Généré le :  mer. 30 jan. 2019 à 07:20
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.1.25
 
@@ -25,6 +25,45 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_img` int(11) NOT NULL,
+  `comment` int(11) NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `galerie`
+--
+
+CREATE TABLE `galerie` (
+  `id` int(11) NOT NULL,
+  `id_user` int(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `likes`
+--
+
+CREATE TABLE `likes` (
+  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_img` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `users`
 --
 
@@ -35,7 +74,7 @@ CREATE TABLE `users` (
   `mail` varchar(255) NOT NULL,
   `login` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `registrationDate` date NOT NULL,
+  `registrationDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `activate` tinyint(1) DEFAULT NULL,
   `confirmKey` varchar(255) NOT NULL,
   `restoreKey` varchar(255) DEFAULT NULL
@@ -46,12 +85,30 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstName`, `lastName`, `mail`, `login`, `password`, `registrationDate`, `activate`, `confirmKey`, `restoreKey`) VALUES
-(1, 'Rezgui', 'Malek', 'm.rezgui12@gmail.com', 'marezgui', '$2y$10$kcxBrl5LkNSCR4.Lj/GrT.ORjCCZMHB8G6wSHwF/E3WJSx3Beg5f6', '2019-01-27', 1, '777', NULL),
-(3, 'test', 'test', 'test@test.fr', 'test', '$2y$10$QyJmSZK0lJk7Gn4NsxIMIOQNIm1hOuFC2jfWo95LV6vDDJkD7uMEm', '2019-01-29', 1, '362e80d4df43b03ae6d3f8540cd63626', NULL);
+(1, 'Rezgui', 'Malek', 'm.rezgui12@gmail.com', 'marezgui', '$2y$10$kcxBrl5LkNSCR4.Lj/GrT.ORjCCZMHB8G6wSHwF/E3WJSx3Beg5f6', '2019-01-27 00:00:00', 1, '777', NULL),
+(3, 'test', 'test', 'test@test.fr', 'test', '$2y$10$QyJmSZK0lJk7Gn4NsxIMIOQNIm1hOuFC2jfWo95LV6vDDJkD7uMEm', '2019-01-29 00:00:00', 1, '362e80d4df43b03ae6d3f8540cd63626', NULL);
 
 --
 -- Index pour les tables déchargées
 --
+
+--
+-- Index pour la table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `galerie`
+--
+ALTER TABLE `galerie`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `likes`
+--
+ALTER TABLE `likes`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `users`
@@ -64,6 +121,24 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT pour la table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `galerie`
+--
+ALTER TABLE `galerie`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT pour la table `likes`
+--
+ALTER TABLE `likes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
@@ -73,4 +148,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
