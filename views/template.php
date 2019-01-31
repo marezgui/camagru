@@ -10,6 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <link rel="stylesheet" href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/public/css/template.css' ?>" />
+        <link rel="stylesheet" href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/public/css/gallery.css' ?>" />
         <title><?= $title ?></title>
         <script type="text/javascript">
             function highlightCurrent() {
@@ -34,7 +35,7 @@
         <nav id="nav">
             <ul>
                 <li><a href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/index.php' ?>"><i class="fas fa-home"></i></a></li>
-                <li><a href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/galerie.php' ?>" ><i class="far fa-images"></i></a></li>
+                <li><a href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/views/gallery.php' ?>" ><i class="far fa-images"></i></a></li>
                 
                 <?php 
                     if (isset($_SESSION['login']) && !empty($_SESSION['login']))
@@ -76,7 +77,7 @@
             </ul>
         </nav>
         <div id="main-page">
-            <header>
+            <header id="header">
                 <p>Camagru</p>
             </header>
             <section id="content">

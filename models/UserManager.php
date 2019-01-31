@@ -3,17 +3,17 @@ require $_SERVER['DOCUMENT_ROOT'] . '/camagru/models/Manager.php';
 
 class UserManager extends Manager
 {
-	public function mailOccurance($mail)
+	function mailOccurance($mail)
 	{
 		$db = $this->dbConnect();
 	    $req = $db->prepare('SELECT * FROM users WHERE mail = ?');
 	    $req->execute(array($mail));
-	    $user = $req->fetch();
+	    $user = $req->fetch(PDO::FETCH_ASSOC);
 
 	    return $user;
 	}
 
-	public function newUser($firstName, $lastName, $mail, $login, $password, $confirmKey)
+	function newUser($firstName, $lastName, $mail, $login, $password, $confirmKey)
 	{
 		$db = $this->dbConnect();
 	    $user = $db->prepare('INSERT INTO users(firstName, lastName, mail, login, password, confirmKey) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
@@ -22,17 +22,17 @@ class UserManager extends Manager
 	    return $addedUser;
 	}
 
-	public function getUser($login)
+	function getUser($login)
 	{
 	    $db = $this->dbConnect();
 	    $req = $db->prepare('SELECT * FROM users WHERE login = ?');
 	    $req->execute(array($login));
-	    $user = $req->fetch();
+	    $user = $req->fetch(PDO::FETCH_ASSOC);
 
 	    return $user;
 	}
 
-	public function activateUser($login, $confirmKey)
+	function activateUser($login, $confirmKey)
 	{
 		$db = $this->dbConnect();
 		$req = $db->prepare('UPDATE users SET activate = ? WHERE login = ?');
@@ -41,7 +41,7 @@ class UserManager extends Manager
 	    return 1;
 	}
 
-	public function logOnUser($login, $password)
+	function logOnUser($login, $password)
 	{
 		$user = $this->getUser($login);
 		if ($user)
@@ -53,7 +53,7 @@ class UserManager extends Manager
 			return 0;
 	}
 
-	public function updateLogin($login, $newLogin)
+	function updateLogin($login, $newLogin)
 	{
 		$db = $this->dbConnect();
 		$req = $db->prepare('UPDATE users SET login = ? WHERE login = ?');
@@ -62,7 +62,7 @@ class UserManager extends Manager
 		return 1;
 	}
 
-	public function updateMail($login, $newMail)
+	function updateMail($login, $newMail)
 	{
 		$db = $this->dbConnect();
 		$req = $db->prepare('UPDATE users SET mail = ? WHERE login = ?');
@@ -71,7 +71,7 @@ class UserManager extends Manager
 		return 1;
 	}
 
-	public function updatePassword($login, $newPassword)
+	function updatePassword($login, $newPassword)
 	{
 		$db = $this->dbConnect();
 		$req = $db->prepare('UPDATE users SET password = ? WHERE login = ?');
@@ -80,7 +80,7 @@ class UserManager extends Manager
 		return 1;
 	}
 
-	public function restoreKey($login, $restoreKey)
+	function restoreKey($login, $restoreKey)
 	{
 		$db = $this->dbConnect();
 		$req = $db->prepare('UPDATE users SET restoreKey = ? WHERE login = ?');

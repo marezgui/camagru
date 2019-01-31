@@ -1,0 +1,52 @@
+/* Gallery */
+
+	#gallery 
+	{
+		padding: 3.5em;
+		min-height: 37em;
+	}
+		#gallery header h1 
+		{
+		    font-size: 2em;
+		}
+		#gallery #content 
+		{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+		}
+			#gallery #content .media 
+			{
+				/*--------------*/
+				margin-bottom: 0;
+				overflow: hidden;
+				margin: 0px 0px 7px 0px;
+				padding: 0px 0px 0px 0px;
+			}
+				#gallery #content .media img 
+				{
+					/*--------------*/
+					width: 300px;
+					height: 300px;
+				}
+					#gallery #content .media .underImg
+					{
+						display: flex;
+						justify-content: space-around;
+						margin: 0px 0px 5px 0px;
+						padding: 3px 0px 2px 0px;
+					}
+						.details
+						{
+							
+						}
+
+						.like
+						{
+							color: blue;
+						}
+
+						.comments
+						{
+							color: black;
+						}
