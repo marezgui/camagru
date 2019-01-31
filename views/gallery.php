@@ -15,17 +15,19 @@
 					<div class="media">
 						<a href="#">
 							<img src='<?= "../public/images/gallery/". $img[$i]['path'] ?>' alt="" title="" />
+							<input type="hidden" name="id_img" value='<?= $img[$i]['id']?>'>
 						</a>
 						<div class="underImg">
 							<div class="details">
 								<span class="author"><?= ucfirst($img[$i]['login']) ?></span>
 								<span class="date"><?= $img[$i]['date'] ?></span>
 							</div>
-							<a href="#" class="like">
-								<i class="fas fa-thumbs-up"></i> <?= $gallery->getLikes($img[$i]['id']) ?>
+							<a href="#" class="like" > 
+								<i class="fas fa-heart"></i> <?= $gallery->getLikes($img[$i]['id']) ?> 
 							</a>
+
 							<a class="comments" href="#" >
-								<i class="far fa-comment-alt"></i> <?= (int) $gallery->getNbComments($img[$i]['id']) ?>
+								<i class="fas fa-bolt"></i> <?= (int) $gallery->getNbComments($img[$i]['id']) ?>
 							</a>
 						</div>
 					</div>
@@ -34,6 +36,8 @@
 			?>
 		</div>
 </section>
+
+<script src="../public/js/oXHR.js"></script>
 
 <?php 
 	$content = ob_get_clean();
