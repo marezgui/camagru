@@ -3,6 +3,7 @@
 	<button id="startbutton">Start</button>
 	<canvas id="canvas"></canvas>		
 	<button id="take">Prendre une photo</button>
+	<p>Suggestions: <span id="txtHint"></span></p> 
 </main>
 <aside></aside>
 <form>
@@ -22,16 +23,7 @@
 	<label for="Choice3">Cigare</label>
 	<img id="cigare" src="public/images/filtre/cigare.png">
 </form>
-<h2>The XMLHttpRequest Object</h2>
-
-<h3>Start typing a name in the input field below:</h3>
-
-<p>Suggestions: <span id="txtHint"></span></p> 
-
-<p>First name: <input type="text" id="txt1" onkeyup="showHint(this.value)"></p>
-
 <script src="public/js/montage.js"></script>
-
 <?php 
 	$content = ob_get_clean();
 	$title = "Montage";

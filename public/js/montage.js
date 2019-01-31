@@ -13,7 +13,7 @@ var streaming = false,
 	img_h	= frame.offsetHeight,
 	img_w	= frame.offsetWidth,
 	filtre	= "kitten",
-	size	= 1,
+	size	= 0.6,
 	setoffX = 0,
 	setoffY = 0,
 	width	= 500,
@@ -99,7 +99,7 @@ document.addEventListener('keydown', (event) => {
 	
 });
 
-form.addEventListener("change", function(event) {
+form.addEventListener("change", function() {
 	size = 0.6;
 	var data = new FormData(form);
 	for (const entry of data) {
@@ -108,30 +108,24 @@ form.addEventListener("change", function(event) {
 	};
 });
 
-startbutton.addEventListener('click', function(ev){
+startbutton.addEventListener('click', function(){
 	updateCanvas();
 });
 
-take.addEventListener('click', function(ev){
-	console.log(size, srcX, srcY);
-	console.log(setoffX, setoffY);
+take.addEventListener('click', function(){
+	console.log(size, setoffX, setoffY);
+	var xhttp;
+	xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function()
+	{
+		if (this.readyState == 4 && this.status == 200)
+		{
+		  document.getElementById("txtHint").innerHTML = this.responseText;
+		}
+	};
+	xhttp.open("POST", "resample.php", true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send("size="+size+"&dst_x="+setoffX+"&dst_y="+setoffY);
 });
 
 })();
-
-function showHint(str) {
-	var xhttp;
-	if (str.length == 0) { 
-		document.getElementById("txtHint").innerHTML = "";
-		return;
-	}
-	xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-	if (this.readyState == 4 && this.status == 200) {
-	  document.getElementById("txtHint").innerHTML = this.responseText;
-	}
-	};
-	xhttp.open("POST", "getpost.php", true);
-	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("q="+str);
-}
