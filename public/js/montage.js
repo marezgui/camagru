@@ -13,7 +13,7 @@ var streaming = false,
 	img_h	= frame.offsetHeight,
 	img_w	= frame.offsetWidth,
 	filtre	= "kitten",
-	size	= 0.6,
+	size	= 1,
 	setoffX = 0,
 	setoffY = 0,
 	width	= 500,
@@ -118,3 +118,20 @@ take.addEventListener('click', function(ev){
 });
 
 })();
+
+function showHint(str) {
+	var xhttp;
+	if (str.length == 0) { 
+		document.getElementById("txtHint").innerHTML = "";
+		return;
+	}
+	xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+	if (this.readyState == 4 && this.status == 200) {
+	  document.getElementById("txtHint").innerHTML = this.responseText;
+	}
+	};
+	xhttp.open("POST", "getpost.php", true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("q="+str);
+}
