@@ -1,9 +1,9 @@
-
 <main>
 	<video id="video"></video>
 	<button id="startbutton">Start</button>
 	<canvas id="canvas"></canvas>		
 	<button id="take">Prendre une photo</button>
+	<p>Suggestions: <span id="txtHint"></span></p> 
 </main>
 <aside></aside>
 <form>
@@ -23,9 +23,7 @@
 	<label for="Choice3">Cigare</label>
 	<img id="cigare" src="public/images/filtre/cigare.png">
 </form>
-
 <script src="public/js/montage.js"></script>
-
 <?php 
 	$content = ob_get_clean();
 	$title = "Montage";
