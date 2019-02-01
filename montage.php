@@ -3,7 +3,6 @@
 	<button id="startbutton">Start</button>
 	<canvas id="canvas"></canvas>		
 	<button id="take">Prendre une photo</button>
-	<p>Suggestions: <span id="txtHint"></span></p> 
 </main>
 <aside></aside>
 <form>

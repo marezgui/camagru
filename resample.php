@@ -1,36 +1,39 @@
 <?php
 
-$db = new mysqli("localhost", "root", "123456", "camagru");
-if($mysqli->connect_error) {
-  exit('Could not connect');
-}
+require $_SERVER['DOCUMENT_ROOT'] . '/camagru/models/Gallery.php';
+
+// $gallery = new Gallery();
+
+// $gallery->addImages(1, "test.png");
 
 $size = $_POST["size"];
-
 $dst_x = $_POST["dst_x"];
-
 $dst_y = $_POST["dst_y"];
+$filtre = $_POST["filtre"];
+$photo = $_POST["photo"];
 
-$sql = "INSERT INTO images(id_user, path) VALUES (1, 'test.png')");
-if ($db->query($sql) === TRUE) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $sql;
-}
+$photo = str_replace('data:image/png;base64,', '', $photo);
+$photo = str_replace(' ', '+', $photo);
+$data = base64_decode($photo);
 
-// $filename = 'public/images/filtre/kitten.png';
-// $percent = 0.5;
+$filename = 'public/images/filtre/'.$filtre;
 
-// header('Content-Type: image/png');
+list($width, $height) = getimagesize($filename);
+$new_width = $width * $size;
+$new_height = $height * $size;
 
-// list($width, $height) = getimagesize($filename);
-// $new_width = $width * $percent;
-// $new_height = $height * $percent;
+$file = uniqid() . '.png';
+file_put_contents('public/images/gallery/' . $file, $data);
 
-// $dst = imagecreatefrompng("public/images/test.png");
-// $src = imagecreatefrompng($filename);
-// // imagecopyresampled ($dst_image, $src_image , $dst_x , $dst_y , $src_x ,$src_y ,$dst_w ,$dst_h ,$src_w ,$src_h ) : bool
-// imagecopyresampled($dst, $src, 85.99, 14.999, 0, 0, $new_width, $new_height, $width, $height);
+$dst = imagecreatefrompng('public/images/gallery/' . $file);
+$src = imagecreatefrompng($filename);
+imagecopyresampled($dst, $src, $dst_x, $dst_y, 0, 0, $new_width, $new_height, $width, $height);
 
-// imagepng($dst);
+imagepng($dst, 'public/images/gallery/' . $file);
+
+$gallery = new Gallery();
+$gallery->addImages(1, $file);
+
+imagedestroy($src);
+imagedestroy($dest);
 ?>

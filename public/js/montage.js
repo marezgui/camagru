@@ -10,6 +10,7 @@ var streaming = false,
 	form		= document.querySelector('form'),
 	frame		= document.querySelector('#kitten'),
 	ctx 		= canvas.getContext('2d'),
+	dataUrl,
 	img_h	= frame.offsetHeight,
 	img_w	= frame.offsetWidth,
 	filtre	= "kitten",
@@ -19,6 +20,9 @@ var streaming = false,
 	width	= 500,
 	mouse	= 1,
 	height	= 0;
+
+canvas.width = width;
+canvas.height = height;
 
 navigator.getMedia = ( navigator.getUserMedia ||
 						navigator.webkitGetUserMedia ||
@@ -75,10 +79,9 @@ canvas.addEventListener('mousemove', function(e)
 });
 
 function updateCanvas()
-{
-	canvas.width = width;
-	canvas.height = height;
-	ctx.drawImage(video, 0, 0, width, height);
+{	
+	test = ctx.drawImage(video, 0, 0, width, height);
+	dataUrl = canvas.toDataURL();
 	if (filtre != 'none')
 		ctx.drawImage(document.getElementById(filtre), setoffX, setoffY, img_w * size, img_h * size);
 	setTimeout(updateCanvas, 100);
@@ -105,6 +108,8 @@ form.addEventListener("change", function() {
 	for (const entry of data) {
 	filtre = entry[1];
 	frame = document.querySelector('#' + filtre);0
+	img_h = frame.offsetHeight;
+	img_w = frame.offsetWidth;
 	};
 });
 
@@ -116,16 +121,13 @@ take.addEventListener('click', function(){
 	console.log(size, setoffX, setoffY);
 	var xhttp;
 	xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function()
-	{
-		if (this.readyState == 4 && this.status == 200)
-		{
-		  document.getElementById("txtHint").innerHTML = this.responseText;
-		}
+	xhttp.onreadystatechange = function() {
+	if (this.readyState == 4 && this.status == 200) {
+		console.log(this.responseText);
+	}
 	};
 	xhttp.open("POST", "resample.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhttp.send("size="+size+"&dst_x="+setoffX+"&dst_y="+setoffY);
+	xhttp.send("size="+size+"&dst_x="+setoffX+"&dst_y="+setoffY+"&filtre="+filtre+".png"+"&photo="+dataUrl);
 });
-
 })();
