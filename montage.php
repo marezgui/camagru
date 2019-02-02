@@ -7,49 +7,57 @@
 	<button id="take">Prendre une photo</button>
 </main>
 <aside></aside>
-<form>
-	<input type="radio" id="Choice0" name="filtre" value="none" >
-	<label for="Choice0">None</label>
-	<img id="none" src="">
-
-	<input type="radio" id="Choice1" name="filtre" value="billet">
-	<label for="Choice1">Billet</label>
-	<img id="billet" src="public/images/filtre/billet.png">
-
-	<input type="radio" id="Choice2" name="filtre" value="kitten" checked>
-	<label for="Choice2">Chaton</label>
-	<img id="kitten" src="public/images/filtre/kitten.png">
-
-	<input type="radio" id="Choice3" name="filtre" value="cigare">
-	<label for="Choice3">Cigare</label>
-	<img id="cigare" src="public/images/filtre/cigare.png">
-</form><span id="votre_id1" class="target"></span>
-
-
-<div class="cadre_diapo">
+<div>
 	<ul class="navigation_diapo">
 		<li>
-			<a href="#votre_id1">
-				<img src="public/images/filtre/kitten.png" alt>
+			<a>
+				<img id="kitten" src="public/images/filtre/kitten.png" alt>
 			</a>
 		</li>
 		<li>
-			<a href="#votre_id2">
-				<img src="public/images/filtre/kitten.png" alt>
+			<a>
+				<img id="dog" src="public/images/filtre/dog.png" alt>
 			</a>
 		</li>
 		<li>
-			<a href="#votre_id3">
-				<img src="public/images/filtre/cigare.png" alt>
+			<a>
+				<img id="cigare" src="public/images/filtre/cigare.png" alt>
 			</a>
 		</li>
 		<li>
-			<a href="#votre_id4">
-				<img src="public/images/filtre/billet.png" alt>
+			<a>
+				<img id="billet" src="public/images/filtre/billet.png" alt>
+			</a>
+		</li>
+		<li>
+			<a>
+				<img id="piercing" src="public/images/filtre/piercing.png" alt>
+			</a>
+		</li>
+		<li>
+			<a>
+				<img id="ours" src="public/images/filtre/ours.png" alt>
+			</a>
+		</li>
+		<li>
+			<a>
+				<img id="nuage" src="public/images/filtre/nuage.png" alt>
 			</a>
 		</li>
 	</ul>
 </div>
+<section class="card">
+  <div class="card--content"></div>
+  <div class="card--content"></div>
+  <div class="card--content"></div>
+  <div class="card--content"></div>
+  <div class="card--content"></div>
+  <div class="card--content"></div>
+  <div class="card--content"></div>
+  <div class="card--content"></div>
+  <div class="card--content"></div>
+  <div class="card--content"></div>
+</section>
 <script src="public/js/montage.js"></script>
 <?php 
 	$content = ob_get_clean();

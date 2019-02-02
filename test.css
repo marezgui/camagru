@@ -3,24 +3,36 @@
 img{
 max-width:100%;
 image-rendering:optimizeQuality;
-pointer-events:none;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none}
+pointer-events:none;
+-moz-user-select:none;
+-webkit-user-select:none;
+-ms-user-select:none}
 
+/*form {
+width:1000px;
+height:540px;
+margin:20px auto;
+overflow:hidden}*/
 
+form a{
+display:inline-block;
+width:120px;
+margin:0 5px;
+height:80px
+}
 
-
-.cadre_diapo{
-width:600px;
+#list_filtre{
+width:1000px;
 height:540px;
 margin:20px auto;
 overflow:hidden}
 
-
-
-
 /*navigation avec images miniatures*/
 .navigation_diapo{
 display:inline-block;
-list-style:none}
+list-style:none;
+overflow-x:auto;
+display:flex; }
 
 .navigation_diapo li{float:left}
 
@@ -35,6 +47,3 @@ display:inline-block;
 width:120px;
 margin:0 5px;
 height:80px}
-
-
-

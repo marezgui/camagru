@@ -6,12 +6,13 @@ var streaming = false,
 	canvas		= document.querySelector('#canvas'),
 	photo		= document.querySelector('#photo'),
 	take		= document.querySelector('#take'),
-	form		= document.querySelector('form'),
+	form		= document.querySelector('form'),	
+	list_filtre	= document.querySelector('list_filtre'),
 	frame		= document.querySelector('#kitten'),
 	ctx 		= canvas.getContext('2d'),
 	dataUrl,
-	img_h	= frame.offsetHeight,
-	img_w	= frame.offsetWidth,
+	img_h	= frame.naturalHeight,
+	img_w	= frame.naturalWidth,
 	filtre	= "kitten",
 	size	= 0.6,
 	setoffX = 0,
@@ -85,7 +86,7 @@ function updateCanvas()
 	dataUrl = canvas.toDataURL();
 	if (filtre != 'none')
 		ctx.drawImage(document.getElementById(filtre), setoffX, setoffY, img_w * size, img_h * size);
-	setTimeout(updateCanvas, 100);
+	setTimeout(updateCanvas, 25);
 };
 
 document.addEventListener('keydown', (event) => {
@@ -103,17 +104,26 @@ document.addEventListener('keydown', (event) => {
 	
 });
 
-form.addEventListener("change", function() {
-	size = 0.6;
-	let data = new FormData(form);
-	for (const entry of data) {
-	filtre = entry[1];
-	frame = document.querySelector('#' + filtre);0
-	img_h = frame.offsetHeight;
-	img_w = frame.offsetWidth;
-	};
+canvas.addEventListener('click', function(){
+	mouse ^= 1;
 });
 
+document.getElementById('kitten').addEventListener('click', get_filtre);
+document.getElementById('dog').addEventListener('click', get_filtre);
+document.getElementById('billet').addEventListener('click', get_filtre);
+document.getElementById('cigare').addEventListener('click', get_filtre);
+document.getElementById('piercing').addEventListener('click', get_filtre);
+document.getElementById('ours').addEventListener('click', get_filtre);
+document.getElementById('nuage').addEventListener('click', get_filtre);
+
+function get_filtre()
+{
+	size = 0.6;
+	filtre = this.id;
+	frame = document.querySelector('#' + filtre);0
+	img_h = frame.naturalHeight;
+	img_w = frame.naturalWidth;
+}
 
 take.addEventListener('click', function(){
 	console.log(size, setoffX, setoffY);
