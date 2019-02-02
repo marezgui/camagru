@@ -1,6 +1,8 @@
+<head>
+<link rel="stylesheet" type="text/css" href="test.css">
+</head>
 <main>
 	<video id="video"></video>
-	<button id="startbutton">Start</button>
 	<canvas id="canvas"></canvas>		
 	<button id="take">Prendre une photo</button>
 </main>
@@ -21,7 +23,33 @@
 	<input type="radio" id="Choice3" name="filtre" value="cigare">
 	<label for="Choice3">Cigare</label>
 	<img id="cigare" src="public/images/filtre/cigare.png">
-</form>
+</form><span id="votre_id1" class="target"></span>
+
+
+<div class="cadre_diapo">
+	<ul class="navigation_diapo">
+		<li>
+			<a href="#votre_id1">
+				<img src="public/images/filtre/kitten.png" alt>
+			</a>
+		</li>
+		<li>
+			<a href="#votre_id2">
+				<img src="public/images/filtre/kitten.png" alt>
+			</a>
+		</li>
+		<li>
+			<a href="#votre_id3">
+				<img src="public/images/filtre/cigare.png" alt>
+			</a>
+		</li>
+		<li>
+			<a href="#votre_id4">
+				<img src="public/images/filtre/billet.png" alt>
+			</a>
+		</li>
+	</ul>
+</div>
 <script src="public/js/montage.js"></script>
 <?php 
 	$content = ob_get_clean();

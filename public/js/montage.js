@@ -5,7 +5,6 @@ var streaming = false,
 	cover		= document.querySelector('#cover'),
 	canvas		= document.querySelector('#canvas'),
 	photo		= document.querySelector('#photo'),
-	startbutton	= document.querySelector('#startbutton'),
 	take		= document.querySelector('#take'),
 	form		= document.querySelector('form'),
 	frame		= document.querySelector('#kitten'),
@@ -78,6 +77,8 @@ canvas.addEventListener('mousemove', function(e)
 	}
 });
 
+document.addEventListener("load", updateCanvas());
+
 function updateCanvas()
 {	
 	test = ctx.drawImage(video, 0, 0, width, height);
@@ -104,7 +105,7 @@ document.addEventListener('keydown', (event) => {
 
 form.addEventListener("change", function() {
 	size = 0.6;
-	var data = new FormData(form);
+	let data = new FormData(form);
 	for (const entry of data) {
 	filtre = entry[1];
 	frame = document.querySelector('#' + filtre);0
@@ -113,13 +114,10 @@ form.addEventListener("change", function() {
 	};
 });
 
-startbutton.addEventListener('click', function(){
-	updateCanvas();
-});
 
 take.addEventListener('click', function(){
 	console.log(size, setoffX, setoffY);
-	var xhttp;
+	let xhttp;
 	xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 	if (this.readyState == 4 && this.status == 200) {
@@ -130,4 +128,5 @@ take.addEventListener('click', function(){
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send("size="+size+"&dst_x="+setoffX+"&dst_y="+setoffY+"&filtre="+filtre+".png"+"&photo="+dataUrl);
 });
+
 })();

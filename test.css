@@ -1,0 +1,40 @@
+*,*:before,*:after{box-sizing:border-box}
+
+img{
+max-width:100%;
+image-rendering:optimizeQuality;
+pointer-events:none;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none}
+
+
+
+
+.cadre_diapo{
+width:600px;
+height:540px;
+margin:20px auto;
+overflow:hidden}
+
+
+
+
+/*navigation avec images miniatures*/
+.navigation_diapo{
+display:inline-block;
+list-style:none}
+
+.navigation_diapo li{float:left}
+
+.navigation_diapo li img{
+pointer-events:auto;/*ne pas reprendre*/
+border:3px solid white;
+transition:.6s}
+.navigation_diapo li img:hover{box-shadow:0 0 5px hsla(0,0%,0%,.4)}
+
+.navigation_diapo li a{
+display:inline-block;
+width:120px;
+margin:0 5px;
+height:80px}
+
+
+
