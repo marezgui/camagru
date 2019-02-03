@@ -60,11 +60,11 @@ video.addEventListener('canplay', function(ev){
 }, false);
 
 //Obliger de declare img_h et img_w car firefox ne les detecte pas avec offsetHeight
-if (img_h == 0 || img_w == 0)
-{
-	img_w = 500;
-	img_h = 500;
-}
+// if (img_h == 0 || img_w == 0)
+// {
+// 	img_w = 500;
+// 	img_h = 500;
+// }
 
 canvas.addEventListener('mousemove', function(e)
 {

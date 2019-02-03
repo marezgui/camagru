@@ -46,18 +46,6 @@
 		</li>
 	</ul>
 </div>
-<section class="card">
-  <div class="card--content"></div>
-  <div class="card--content"></div>
-  <div class="card--content"></div>
-  <div class="card--content"></div>
-  <div class="card--content"></div>
-  <div class="card--content"></div>
-  <div class="card--content"></div>
-  <div class="card--content"></div>
-  <div class="card--content"></div>
-  <div class="card--content"></div>
-</section>
 <script src="public/js/montage.js"></script>
 <?php 
 	$content = ob_get_clean();
