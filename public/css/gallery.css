@@ -1,52 +1,104 @@
 /* Gallery */
 
-	#gallery 
+#gallery 
+{
+	padding: 3.5em;
+	min-height: 37em;
+}
+	#gallery header h1 
 	{
-		padding: 3.5em;
-		min-height: 37em;
+	    font-size: 2em;
 	}
-		#gallery header h1 
+	#gallery #content 
+	{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
+		#gallery #content .media 
 		{
-		    font-size: 2em;
+			/*--------------*/
+			margin-bottom: 0;
+			overflow: hidden;
+			margin: 0px 0px 7px 0px;
+			padding: 0px 0px 0px 0px;
 		}
-		#gallery #content 
-		{
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-around;
-		}
-			#gallery #content .media 
+			#gallery #content .media img 
 			{
 				/*--------------*/
-				margin-bottom: 0;
-				overflow: hidden;
-				margin: 0px 0px 7px 0px;
-				padding: 0px 0px 0px 0px;
+				width: 300px;
+				height: 300px;
 			}
-				#gallery #content .media img 
+				#gallery #content .media .underImg
 				{
-					/*--------------*/
-					width: 300px;
-					height: 300px;
+					display: flex;
+					justify-content: space-around;
+					margin: 0px 0px 5px 0px;
+					padding: 3px 0px 2px 0px;
 				}
-					#gallery #content .media .underImg
+					.details
 					{
-						display: flex;
-						justify-content: space-around;
-						margin: 0px 0px 5px 0px;
-						padding: 3px 0px 2px 0px;
+						
 					}
-						.details
-						{
-							
-						}
 
-						.like
-						{
-							color: red;
-						}
+					.underImg a 
+					{
+						text-decoration: none;
+					}
 
-						.comments
-						{
-							color: black;
-						}
+					.like
+					{
+						border: 1px solid white;
+						color: red;
+					}
+
+					.like
+					{
+						/*animation: slidein 0.5s infinite;*/
+					}
+
+					.comments
+					{
+						color: black;
+					}
+#nbPage 
+{
+	margin-top: 10px;
+	padding-top: 2px;
+	border-top: 1px solid grey;
+	margin: auto;
+	text-align: center;
+}
+
+/* Modal */
+	.backdrop 
+	{
+	    display: none;
+	    position: fixed;
+	    background: rgba(0, 0, 0, 0.5);
+	    top: 0;
+	    height: 100vh;
+	    width: 100vw;
+	    z-index: 1;
+	}
+
+	.modal 
+	{
+	    display: none;
+	    position: fixed;
+	    background: white;
+	    padding: 10px;
+	    width: 260px;
+	    top: 100px;
+	    left: calc(50% - 140px);
+	    z-index: 1;    
+	}
+
+	@media (min-width: 400px) 
+	{
+	    .modal 
+	    {
+	        width: 360px;
+	        left: calc(50% - 190px);
+	    }
+	}

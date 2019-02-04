@@ -1,0 +1,69 @@
+#main_montage
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+img
+{
+	max-width:100%;
+	image-rendering:optimizeQuality;
+}
+
+.navigation_diapo
+{
+	list-style:none;
+	overflow-x: auto;
+	display:flex;
+	width: 70%;
+	margin: auto;
+}
+
+
+.navigation_diapo li img
+{
+	pointer-events:auto;
+	transition:.6s
+}
+
+.navigation_diapo li img:hover
+{
+	box-shadow:0 0 5px hsla(0,0%,0%,.4);
+}
+
+.navigation_diapo li a
+{
+	width:120px;
+	margin:0 5px;
+	height:80px;
+	display: inline-block;
+}
+
+#camera 
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	width: 500px;
+	max-width: 700px;
+}
+
+#pannel 
+{
+	display: flex;
+	width: 100%;
+	justify-content: space-around;
+	border: 1px solid black;
+	margin-bottom: 15px;
+}
+
+#myImages
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	border: 1px solid black;
+}

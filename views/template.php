@@ -11,6 +11,8 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <link rel="stylesheet" href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/public/css/template.css' ?>" />
         <link rel="stylesheet" href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/public/css/gallery.css' ?>" />
+        <link rel="stylesheet" href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/public/css/montage.css' ?>" />
+        
         <title><?= $title ?></title>
         <script type="text/javascript">
             function highlightCurrent() {
@@ -48,8 +50,8 @@
                             </a>
                         </li>
                         <li>
-                            <form method="POST" action="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/controllers/session.php' ?>">
-                                <a href="#" onclick="document.forms[0].submit();return false;">
+                            <form id="logout" method="POST" action="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/controllers/session.php' ?>">
+                                <a href="#" onclick="document.getElementById('logout').submit();return false;">
                                     <i class="fas fa-sign-out-alt"></i>
                                 </a>
                                 <input type="hidden" name="logout" value="logout">
