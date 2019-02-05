@@ -1,24 +1,23 @@
-let backdrop = document.querySelector('.backdrop');
-
-function openModal(modal)
+function openModal(modal) 
 {
-	backdrop.style.display = 'block';
 	modal.style.display = 'block';
 }
 
-function closeModal(modal)
+function closeModal(modal) 
 {
-	backdrop.style.display = 'none';
-	for (i = 0; i < modal.length; i++)
-	{
-		modal[i].style.display = 'none';
-	}
+	modal.style.display = 'none';
 }
 
-/*
-function addModalContent(modalName, modalContent) 
+function outsideClick(e) 
 {
-	let modal = document.getElementById(modalName + "-modal");
-	let modalBody = document.querySelectorAll("#" + modalName + "-modal .modal-body")[0];
-	modalBody.innerHTML = modalContent;
-}*/
+	let modal = document.querySelectorAll('.modal');
+	for (i = 0; i < modal.length; i++)
+	{
+		if (e.target == modal[i]) 
+	  	{
+	    	modal[i].style.display = 'none';
+	  	}
+  	}
+}
+
+window.addEventListener('click', outsideClick);

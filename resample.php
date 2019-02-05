@@ -1,5 +1,5 @@
 <?php
-
+require $_SERVER['DOCUMENT_ROOT'] . '/camagru/controllers/session.php';
 require $_SERVER['DOCUMENT_ROOT'] . '/camagru/models/Gallery.php';
 
 // $gallery = new Gallery();
@@ -32,7 +32,7 @@ imagecopyresampled($dst, $src, $dst_x, $dst_y, 0, 0, $new_width, $new_height, $w
 imagepng($dst, 'public/images/gallery/' . $file);
 
 $gallery = new Gallery();
-$gallery->addImages(1, $file);
+$gallery->addImages($_SESSION['id'], $file);
 
 imagedestroy($src);
 imagedestroy($dest);

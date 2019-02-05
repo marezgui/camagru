@@ -52,16 +52,6 @@ class Gallery extends Manager
 	    return $img;
 	}
 
-	function getLikes($id_image)
-	{
-		$db = $this->dbConnect();
-	    $req = $db->prepare('SELECT COUNT(id) FROM likes WHERE id_image = ?');
-	    $req->execute(array($id_image));
-	    $likes = $req->fetch(PDO::FETCH_NUM);
-
-	    return $likes[0];
-	}
-
 	function getComments($id_image)
 	{
 		$db = $this->dbConnect();
@@ -70,6 +60,13 @@ class Gallery extends Manager
 	    $comments = $req->fetchAll(PDO::FETCH_ASSOC);
 
 	    return $comments;
+	}
+
+	function addComment($id_user, $id_image, $comment)
+	{
+		$db = $this->dbConnect();
+	    $req = $db->prepare('INSERT INTO comments(id_user, id_image, comment) VALUES (?, ?, ?)');
+	    $req->execute(array($id_user, $id_image, $comment));
 	}
 
 	function getNbComments($id_image)
@@ -90,6 +87,16 @@ class Gallery extends Manager
 	    $status = $req->fetch(PDO::FETCH_NUM);
 
 	    return $status[0];
+	}
+
+	function getLikes($id_image)
+	{
+		$db = $this->dbConnect();
+	    $req = $db->prepare('SELECT COUNT(id) FROM likes WHERE id_image = ?');
+	    $req->execute(array($id_image));
+	    $likes = $req->fetch(PDO::FETCH_NUM);
+
+	    return $likes[0];
 	}
 
 	function addLike($id_user, $id_image)

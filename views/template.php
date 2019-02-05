@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/public/css/template.css' ?>" />
         <link rel="stylesheet" href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/public/css/gallery.css' ?>" />
         <link rel="stylesheet" href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/public/css/montage.css' ?>" />
+        <link rel="icon" type="image/png" href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/public/images/favicon.ico' ?>" sizes="32x32" />
         
         <title><?= $title ?></title>
         <script type="text/javascript">
@@ -62,7 +63,7 @@
                     else
                     {
                 ?>
-                        <li><a href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/montageGuest.php' ?>" ><i class="fas fa-camera-retro"></i></a></li>
+                        <li><a href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/views/montageGuest.php' ?>" ><i class="fas fa-camera-retro"></i></a></li>
                         <li>
                             <a href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/views/inscription.php' ?>">
                                 <i class="fas fa-file-alt"></i>

@@ -108,3 +108,19 @@
 /* Montage Video */
 
 #video { display:none!important; }
+
+/**/
+.button 
+{
+	background: black;
+	padding: 1em;
+	color: #fff;
+	border: 0;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.button:hover 
+{
+	background: #3876ac;
+}

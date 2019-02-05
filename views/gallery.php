@@ -2,8 +2,6 @@
 
 <?php ob_start(); ?>
 
-<div class="backdrop" onclick="closeModal(document.querySelectorAll('.modal'));"></div>
-
 <section id="gallery">
 		<header>
 			<h1>Galerie</h1>
@@ -39,18 +37,58 @@
 						</div>
 					</div>
 					<div class="modal" id='modal-<?= $img[$i]['id'] ?>'>
-						<h1>Commentaire</h1>
-						<textarea placeholder="Commentaire..." rows="5" cols="60"></textarea>
-						<a href="javascript:{}"> Ajouter </a>
-						<?php 
-							$comments = getComments($img[$i]['id']);
-							foreach ($comments as $comment) 
-							{
-						?>
-								<p><?= $comment['comment'] ?></p>
-						<?php
-							}
-						?>
+						<div class="modal-content">
+							<div class="modal-header">
+						    	<span onclick="closeModal(document.querySelector('#modal-<?= $img[$i]['id'] ?>'))" class="close">&times; </span>
+						      	<h2>Commentaire</h2>
+						    </div>
+							<div class="modal-body">
+								<img src='<?= "../public/images/gallery/". $img[$i]['path'] ?>' alt="" title="" />
+								<?php 
+									if (isset($_SESSION['id']))
+									{
+								?>
+										<h2>Ajouter un commentaire</h2>
+										<form id='fc-<?= $img[$i]['id'] ?>' method="POST" action="/camagru/controllers/galleryComment.php">
+											<div class="add-cmt">
+												<textarea name="newCmt" ></textarea>
+												<input type="hidden" name="id_img" value="<?= $img[$i]['id']?>">
+												<input class="button" type="button" value="Ajouter !" onclick="like(document.querySelector('#fc-<?= $img[$i]['id'] ?>'), document.querySelector('#cmt-<?= $img[$i]['id'] ?>'));">
+											</div>
+										</form>
+								<?php
+									}
+								?>
+								<?php 
+									$comments = getComments($img[$i]['id']);
+									if ($comments)
+									{
+								?>
+										<div id='cmt-<?= $img[$i]['id'] ?>'>
+										<?php
+											foreach ($comments as $comment) 
+											{
+										?>
+												<p class="cmt-user" ><?= $comment['login'] ?></p>
+												<p class="cmt"><?= $comment['comment'] ?></p>
+												<p><?= $comment['date'] ?></p>
+												<hr>
+										<?php
+											}
+										?>
+
+										</div>
+								<?php
+									}
+									else
+									{
+								?>
+										<p>Aucuns commentaires.</p>
+								<?php
+									}
+								?>
+							</div>
+						</div>
 					</div>
 			<?php 
 				}
@@ -76,12 +114,10 @@
 
 <script src="../public/js/oXHR.js"></script>
 <script src="../public/js/galleryLike.js"></script>
+<script src="../public/js/galleryAddCmt.js"></script>
 <script src="../public/js/modals.js"></script>
 
 <?php 
-/*onclick="document.getElementById('f-'+<?= $img[$i]['id'] ?>).submit(); return false;
-id='c-<?= $img[$i]['id'] ?>' onclick="openModal(document.querySelector('#c-<?= $img[$i]['id'] ?>'));"
-*/
 	$content = ob_get_clean();
 	$title = "Galerie";
 	require $_SERVER['DOCUMENT_ROOT'] . '/camagru/views/template.php'; 

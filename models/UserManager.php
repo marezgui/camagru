@@ -16,7 +16,7 @@ class UserManager extends Manager
 	function newUser($firstName, $lastName, $mail, $login, $password, $confirmKey)
 	{
 		$db = $this->dbConnect();
-	    $user = $db->prepare('INSERT INTO users(firstName, lastName, mail, login, password, confirmKey) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
+	    $user = $db->prepare('INSERT INTO users(firstName, lastName, mail, login, password, confirmKey) VALUES (?, ?, ?, ?, ?, ?)');
 	    $addedUser = $user->execute(array($firstName, $lastName, $mail, $login, $password, $confirmKey));
 
 	    return $addedUser;

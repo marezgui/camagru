@@ -1,5 +1,5 @@
 /* Gallery */
-
+/* --------------------------- */
 #gallery 
 {
 	padding: 3.5em;
@@ -61,44 +61,127 @@
 					{
 						color: black;
 					}
-#nbPage 
-{
-	margin-top: 10px;
-	padding-top: 2px;
-	border-top: 1px solid grey;
-	margin: auto;
-	text-align: center;
-}
+	#nbPage 
+	{
+		margin-top: 10px;
+		padding-top: 2px;
+		border-top: 1px solid grey;
+		margin: auto;
+		text-align: center;
+	}
+/* -Gallery-------------------- */
 
 /* Modal */
-	.backdrop 
+/* --------------------------- */
+:root 
+{
+	--modal-duration: 1s;
+	--modal-color: black;
+}
+
+.modal 
+{
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content 
+{
+	margin: 10% auto;
+	width: 80%;
+	box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+	animation-name: modalopen;
+	animation-duration: var(--modal-duration);
+	word-wrap: break-word;
+}
+
+.modal-header h2,
+.modal-footer h3 
+{
+	margin: 0;
+}
+
+.modal-header 
+{
+	background: var(--modal-color);
+	padding: 15px;
+	color: #fff;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.modal-body 
+{
+	padding: 10px 20px;
+	background: #fff;
+}
+
+.modal-body img 
+{
+	width: 100%;
+}
+	hr 
 	{
-	    display: none;
-	    position: fixed;
-	    background: rgba(0, 0, 0, 0.5);
-	    top: 0;
-	    height: 100vh;
-	    width: 100vw;
-	    z-index: 1;
+	    border: 0;
+	    height: 1px;
+	    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 	}
 
-	.modal 
+	.add-cmt
 	{
-	    display: none;
-	    position: fixed;
-	    background: white;
-	    padding: 10px;
-	    width: 260px;
-	    top: 100px;
-	    left: calc(50% - 140px);
-	    z-index: 1;    
+		display: flex;
 	}
 
-	@media (min-width: 400px) 
-	{
-	    .modal 
-	    {
-	        width: 360px;
-	        left: calc(50% - 190px);
-	    }
+	.add-cmt textarea
+	{ 
+		margin-left: 2%;
+		margin-right: 2%;
+		width: 80%;
 	}
+
+	.add-cmt input
+	{
+	}
+
+
+.modal-footer 
+{
+	background: var(--modal-color);
+	padding: 1px;
+	color: #fff;
+	text-align: center;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.close 
+{
+	color: #ccc;
+	float: right;
+	font-size: 30px;
+	color: #fff;
+}
+	.close:hover, .close:focus 
+	{
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+@keyframes modalopen 
+{
+	from 
+	{
+		opacity: 0;
+	}
+	to 
+	{
+		opacity: 1;
+	}
+}   
+/* -Modal--------------------- */
