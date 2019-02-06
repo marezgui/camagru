@@ -2,39 +2,28 @@
 
 <?php ob_start(); ?>
 
-<form method="POST" action="">
-	<fieldset>
-		<legend>Connexion</legend>
-		<table>
-			<tr>
-				<td><label for="login">Pseudo : </label></td>
-			</tr>
-			<tr>
-				<td><input id="login" name="login" type="text" value="<?php if (isset($login)) { echo $login; } ?>" maxlength="15" minlength="3" pattern=".{4,}" required title="4 caractères minimum"/></td>
-			</tr>
-			<tr>
-				<td><label for="password">Mot de passe : </label></td>
-			</tr>
-			<tr>
-				<td><input id="password" name="password" type="password"  maxlength="50" pattern=".{6,}" required title="6 caractères minimum"/></td>
-			</tr>
-			<tr>
-				<td><input class="btn-1" type="submit" name="submit" value="Se connecter"></td>
-			</tr>
-			<tr>
-				<td colspan="2"> <a href="forgotten.php">Mot de passe oublié</a></td>
-			</tr>
-		</table>
-		<?php
-			if (isset($error))
-			{
-		?>
-				<font color='red'> <?= $error ?> </font>
-		<?php 
-			} 
-		?>
-	</fieldset>
-</form>
+<section id="connexion">
+	<div class="login-wrap">
+		<h2 class="form-signin-heading">Connexion</h2>
+		<form class="form" method="POST" action="">  
+			<input id="login" name="login" type="text" value="<?php if (isset($login)) { echo $login; } ?>" maxlength="15" minlength="3" pattern=".{4,}" placeholder="Pseudo" required title="4 caractères minimum"/>
+			<input id="password" name="password" type="password"  maxlength="50" pattern=".{6,}" placeholder="Mot de passe" required title="6 caractères minimum"/>
+
+			<button name="submit" type="submit">Se connecter</button>
+			<?php
+				if (isset($error))
+				{
+			?>
+					<font color='red'> <?= $error ?> </font>
+			<?php 
+				} 
+			?>
+			<a href="forgotten.php">
+			<p>Mot de passe oublié</p>
+			</a>
+		</form>
+	</div>
+</section>
 
 <?php 
 	$content = ob_get_clean();
