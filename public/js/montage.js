@@ -10,6 +10,7 @@ var streaming = false,
 	list_filtre	= document.querySelector('list_filtre'),
 	frame		= document.querySelector('#kitten'),
 	ctx 		= canvas.getContext('2d'),
+	img 		= new Image(),
 	dataUrl,
 	img_h	= frame.naturalHeight,
 	img_w	= frame.naturalWidth,
@@ -59,13 +60,6 @@ video.addEventListener('canplay', function(ev){
 	}
 }, false);
 
-//Obliger de declare img_h et img_w car firefox ne les detecte pas avec offsetHeight
-// if (img_h == 0 || img_w == 0)
-// {
-// 	img_w = 500;
-// 	img_h = 500;
-// }
-
 canvas.addEventListener('mousemove', function(e)
 {
 	img_w
@@ -81,8 +75,11 @@ canvas.addEventListener('mousemove', function(e)
 document.addEventListener("load", updateCanvas());
 
 function updateCanvas()
-{	
-	test = ctx.drawImage(video, 0, 0, width, height);
+{
+	if (img['src'] == '')
+		ctx.drawImage(video, 0, 0, width, height);
+	else
+		ctx.drawImage(img, 0, 0, width, height);
 	dataUrl = canvas.toDataURL();
 	if (filtre != 'none')
 		ctx.drawImage(document.getElementById(filtre), setoffX, setoffY, img_w * size, img_h * size);
@@ -126,11 +123,11 @@ function get_filtre()
 }
 
 take.addEventListener('click', function(){
-	console.log(size, setoffX, setoffY);
 	let xhttp;
 	xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 	if (this.readyState == 4 && this.status == 200) {
+		document.getElementById("myImages").innerHTML = this.responseText;
 		console.log(this.responseText);
 	}
 	};
@@ -139,4 +136,35 @@ take.addEventListener('click', function(){
 	xhttp.send("size="+size+"&dst_x="+setoffX+"&dst_y="+setoffY+"&filtre="+filtre+".png"+"&photo="+dataUrl);
 });
 
+//upload image
+
+var allowedTypes = ['png', 'jpg', 'jpeg', 'gif'],
+       fileInput = document.querySelector('#file'),
+       prev = document.querySelector('#prev');
+
+var imageLoader = document.getElementById('imageLoader');
+imageLoader.addEventListener('change', handleImage, false);
+
+function handleImage(e){
+	var files = this.files,
+	imgType;
+	imgType = files[0].name.split('.');
+	imgType = imgType[imgType.length - 1].toLowerCase();
+
+	if (allowedTypes.indexOf(imgType) != -1)
+	{
+		var reader = new FileReader();
+		reader.onload = function(event){
+		    img.onload = function(){
+		        ctx.drawImage(img,0,0);
+		    }
+		    img.src = event.target.result;
+
+		}
+		reader.readAsDataURL(e.target.files[0]);
+
+	}
+	else
+		alert("It's not an image");
+}
 })();

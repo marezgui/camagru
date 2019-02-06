@@ -10,7 +10,48 @@
 			<video id="video"></video>
 			<canvas id="canvas"></canvas>		
 			<button id="take">Prendre une photo</button>
-		</main>	
+			<input id="imageLoader" type="file"/>
+			<div id="prev"></div>
+		</main>
+		<div >
+			<ul class="navigation_diapo">
+				<li>
+					<a>
+						<img id="kitten" src="public/images/filtre/kitten.png" alt>
+					</a>
+				</li>
+				<li>
+					<a>
+						<img id="dog" src="public/images/filtre/dog.png" alt>
+					</a>
+				</li>
+				<li>
+					<a>
+						<img id="cigare" src="public/images/filtre/cigare.png" alt>
+					</a>
+				</li>
+				<li>
+					<a>
+						<img id="billet" src="public/images/filtre/billet.png" alt>
+					</a>
+				</li>
+				<li>
+					<a>
+						<img id="piercing" src="public/images/filtre/piercing.png" alt>
+					</a>
+				</li>
+				<li>
+					<a>
+						<img id="ours" src="public/images/filtre/ours.png" alt>
+					</a>
+				</li>
+				<li>
+					<a>
+						<img id="nuage" src="public/images/filtre/nuage.png" alt>
+					</a>
+				</li>
+			</ul>
+		</div>
 		<aside id="myImages">
 				<?php
 					$gallery = new Gallery();
@@ -21,51 +62,11 @@
 					for ($i= 0; $i < count($img); $i++)
 					{
 				?>
-						<img width="120px" height="120px" src='<?= "./public/images/gallery/". $img[$i]['path'] ?>' />
+						<img src='<?= "./public/images/gallery/". $img[$i]['path'] ?>' />
 				<?php
 					}
 				?>
 		</aside>
-	</section>
-	<div >
-		<ul class="navigation_diapo">
-			<li>
-				<a>
-					<img id="kitten" src="public/images/filtre/kitten.png" alt>
-				</a>
-			</li>
-			<li>
-				<a>
-					<img id="dog" src="public/images/filtre/dog.png" alt>
-				</a>
-			</li>
-			<li>
-				<a>
-					<img id="cigare" src="public/images/filtre/cigare.png" alt>
-				</a>
-			</li>
-			<li>
-				<a>
-					<img id="billet" src="public/images/filtre/billet.png" alt>
-				</a>
-			</li>
-			<li>
-				<a>
-					<img id="piercing" src="public/images/filtre/piercing.png" alt>
-				</a>
-			</li>
-			<li>
-				<a>
-					<img id="ours" src="public/images/filtre/ours.png" alt>
-				</a>
-			</li>
-			<li>
-				<a>
-					<img id="nuage" src="public/images/filtre/nuage.png" alt>
-				</a>
-			</li>
-		</ul>
-	</div>
 </section>
 
 <script src="public/js/montage.js"></script>
