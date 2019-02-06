@@ -1,6 +1,7 @@
 <?php 
 	ini_set('display_errors', 1);
 	error_reporting(E_ALL|E_STRICT);
+    //<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 ?>
 
 <!DOCTYPE html>
@@ -37,6 +38,8 @@
     <body>
         <nav id="nav">
             <ul>
+                <li><i class="fab fa-cuttlefish" id="logo"></i></li>
+
                 <li><a href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/index.php' ?>"><i class="fas fa-home"></i></a></li>
                 <li><a href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/views/gallery.php' ?>" ><i class="far fa-images"></i></a></li>
                 
@@ -47,7 +50,7 @@
                         <li><a href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/montage.php' ?>" ><i class="fas fa-camera-retro"></i></a></li>
                         <li>
                             <a href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/views/manage.php' ?>">
-                                <i class="fas fa-user-circle"></i>
+                                <i class="far fa-user"></i>
                             </a>
                         </li>
                         <li>

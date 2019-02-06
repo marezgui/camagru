@@ -32,7 +32,8 @@
 								</a>
 							</form>
 								<a class="comments" onclick="openModal(document.querySelector('#modal-<?= $img[$i]['id'] ?>'));" href="javascript:{}" >
-									<i class="fas fa-bolt"></i> <?= getNbComments($img[$i]['id']) ?>
+									<i class="far fa-comment"></i> 
+									<span id='c-<?= $img[$i]['id'] ?>'><?= getNbComments($img[$i]['id']) ?></span>
 								</a>
 						</div>
 					</div>
@@ -53,7 +54,7 @@
 											<div class="add-cmt">
 												<textarea name="newCmt" ></textarea>
 												<input type="hidden" name="id_img" value="<?= $img[$i]['id']?>">
-												<input class="button" type="button" value="Ajouter !" onclick="like(document.querySelector('#fc-<?= $img[$i]['id'] ?>'), document.querySelector('#cmt-<?= $img[$i]['id'] ?>'));">
+												<input class="button" type="button" value="Ajouter !" onclick="comment(document.querySelector('#fc-<?= $img[$i]['id'] ?>'), document.querySelector('#cmt-<?= $img[$i]['id'] ?>'), document.querySelector('#c-<?= $img[$i]['id'] ?>'));">
 											</div>
 										</form>
 								<?php
@@ -61,8 +62,6 @@
 								?>
 								<?php 
 									$comments = getComments($img[$i]['id']);
-									if ($comments)
-									{
 								?>
 										<div id='cmt-<?= $img[$i]['id'] ?>'>
 										<?php
@@ -76,17 +75,7 @@
 										<?php
 											}
 										?>
-
 										</div>
-								<?php
-									}
-									else
-									{
-								?>
-										<p>Aucuns commentaires.</p>
-								<?php
-									}
-								?>
 							</div>
 						</div>
 					</div>

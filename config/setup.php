@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le :  mer. 30 jan. 2019 à 15:47
+-- Généré le :  mar. 05 fév. 2019 à 20:34
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.1.25
 
@@ -38,13 +38,6 @@ CREATE TABLE `comments` (
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Déchargement des données de la table `comments`
---
-
-INSERT INTO `comments` (`id`, `id_user`, `id_image`, `comment`, `date`) VALUES
-(1, 1, 3, 'Hello World !', '2019-01-30 17:12:54');
-
 -- --------------------------------------------------------
 
 --
@@ -58,14 +51,6 @@ CREATE TABLE `images` (
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Déchargement des données de la table `images`
---
-
-INSERT INTO `images` (`id`, `id_user`, `path`, `date`) VALUES
-(3, 1, 'no-image.png', '2019-01-30 17:10:07'),
-(4, 1, 'no-image copy.png', '2019-01-30 23:22:00');
-
 -- --------------------------------------------------------
 
 --
@@ -77,15 +62,6 @@ CREATE TABLE `likes` (
   `id_user` int(11) NOT NULL,
   `id_image` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `likes`
---
-
-INSERT INTO `likes` (`id`, `id_user`, `id_image`) VALUES
-(1, 1, 3),
-(2, 0, 0),
-(3, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -100,6 +76,7 @@ CREATE TABLE `users` (
   `mail` varchar(255) NOT NULL,
   `login` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `notifications` tinyint(1) NOT NULL DEFAULT '1',
   `registrationDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `activate` tinyint(1) DEFAULT NULL,
   `confirmKey` varchar(255) NOT NULL,
@@ -110,8 +87,8 @@ CREATE TABLE `users` (
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `firstName`, `lastName`, `mail`, `login`, `password`, `registrationDate`, `activate`, `confirmKey`, `restoreKey`) VALUES
-(1, 'Rezgui', 'Malek', 'm.rezgui12@gmail.com', 'marezgui', '$2y$10$kcxBrl5LkNSCR4.Lj/GrT.ORjCCZMHB8G6wSHwF/E3WJSx3Beg5f6', '2019-01-27 00:00:00', 1, '777', NULL);
+INSERT INTO `users` (`id`, `firstName`, `lastName`, `mail`, `login`, `password`, `notifications`, `registrationDate`, `activate`, `confirmKey`, `restoreKey`) VALUES
+(1, 'Rezgui', 'Malek', 'm.rezgui12@gmail.com', 'marezgui', '$2y$10$kcxBrl5LkNSCR4.Lj/GrT.ORjCCZMHB8G6wSHwF/E3WJSx3Beg5f6', 1, '2019-01-27 00:00:00', 1, '777', NULL);
 
 --
 -- Index pour les tables déchargées
@@ -149,25 +126,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -7,14 +7,20 @@
 		font-size: 100%;
 	}
 	
-	body { display: flex; }
+	body 
+	{ 
+		display: flex; 
+		font-size: 0.9em;
+		font-family: "Futura PT", "Futura", "Helvetica", "Sans serif";
+		color: #2c2c34;
+	}
 
 /* Menu */
 
 	#nav 
 	{
 		display: flex;
-		background: #0d1217;
+		background: rgb(41, 45, 56);
 		width: 5em;
 		padding-top: 2em;
 	}
@@ -32,6 +38,16 @@
 		width: 5em;
 		text-align: center;
 		margin-bottom: 2em;
+	}
+
+	#logo
+	{
+		color: white;
+		margin-bottom: 10%;
+		font-size: 3em;
+		background: linear-gradient(330deg, #e05252 10%, #99e052 50%, #52e0e0 50%, #9952e0 75%, #e05252 50%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
 	}
 
 	#nav ul li a 
@@ -109,7 +125,7 @@
 
 #video { display:none!important; }
 
-/**/
+/* BUTTON */
 .button 
 {
 	background: black;
@@ -123,4 +139,17 @@
 .button:hover 
 {
 	background: #3876ac;
+}
+
+/* Manage.php */
+
+#notifications td:first-child
+{
+	width: 80%;
+}
+
+.connexion
+{
+	margin: auto;
+	text-align: center;
 }

@@ -7,7 +7,21 @@ function confirmationMail($login, $mail, $key, $flag)
 	else
 		$nl = "\n";
 
-    if ($flag)
+    if ($flag == 2)
+    {
+        $message = 
+        '<html>
+            Cher(e) ' . $login . ',<br>
+            <br>
+            Tu as une images qui viens d\'être commenté vas vite lire ce fameux commentaire.
+            <br>
+            <br><br>
+            <br><br>
+            <p>Ce courriel vous est envoyé automatiquement, merci de ne pas utiliser la fonction "répondre à l\'expéditeur".</p>
+        </html>';
+    }
+
+    if ($flag == 1)
     {
         $message =
         '<html>
@@ -21,8 +35,9 @@ function confirmationMail($login, $mail, $key, $flag)
         	<br><br>
         	<p>Ce courriel vous est envoyé automatiquement, merci de ne pas utiliser la fonction "répondre à l\'expéditeur".</p>
         </html>';
-    }  
-    else 
+    }
+
+    if ($flag == 0)
     {
         $message = 
         '<html>
@@ -35,12 +50,14 @@ function confirmationMail($login, $mail, $key, $flag)
             <br><br>
             <p>Ce courriel vous est envoyé automatiquement, merci de ne pas utiliser la fonction "répondre à l\'expéditeur".</p>
         </html>';
-    }
+    } 
 
-    if ($flag)
-        $subject = 'Camagru - Confirmation inscription !';
-    else
+    if ($flag == 0)
         $subject = 'Camagru - Réinitialisation de mot de passe';
+    if ($flag == 1)
+        $subject = 'Camagru - Confirmation inscription !';
+    if ($flag == 2)
+        $subject = 'Camagru - Nouveau commentaire !';
     
     $header = "From: \"Camagru\" <no-reply@camagru.fr>" . $nl;
     $header .= 'MIME-Version: 1.0' . $nl;

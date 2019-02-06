@@ -100,6 +100,17 @@
 			else 
 				$errorPassword = "Les deux champs doivent être remplis.";
 		}
+		
+		if (isset($_POST['submitNotifications']))
+		{
+			$userManager = new UserManager();
+			if (isset($_POST['yes']))
+			{
+				$userManager->updateNotifications($_SESSION['login'], 1);
+			}
+			else 
+				$userManager->updateNotifications($_SESSION['login'], 0);
+		}
 	}
 	else
 	{

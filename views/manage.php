@@ -110,6 +110,19 @@
 	</fieldset>
 </form>
 
+<form method="POST" action="">
+	<fieldset>
+		<legend>Notifications</legend>
+		<table id="notifications">
+			<tr>
+				<td> Nouveau commentaire. </td>
+				<td><label for="yes"> Activer </label><input type="checkbox" name="yes" value="1"></td>
+				<td><input type="submit" value="OK" name="submitNotifications"></td>
+			</tr>
+		</table>
+	</fieldset>
+</form>
+
 <?php 
 	$content = ob_get_clean();
 	$title = "Mon compte";
