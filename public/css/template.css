@@ -203,8 +203,8 @@
 	padding-top: 20px;
 }
 
-input,
-button 
+.form-wrap input,
+.form-wrap button 
 {
 	width: 80%;
 	margin-left: 10%;
@@ -215,13 +215,14 @@ button
 	-moz-outline-style: none;
 }
 
-input 
+.form-wrap input 
 {
 	border: 1px solid #bbb;
 	padding: 0 0 0 10px;
 	font-size: 14px;
 }
-input:focus 
+
+.form-wrap input:focus 
 {
 	 border: 1px solid #3498db;
 }
@@ -237,7 +238,7 @@ input:focus
 	padding-bottom: 10px;
 }
 
-button 
+.form-wrap button 
 {
 	background: #e74c3c;
 	border:none;
@@ -248,12 +249,12 @@ button
 	transition: box-shadow .4s ease;
 }
 
-button:hover 
+.form-wrap > button:hover 
 {
 	box-shadow: 1px 1px 5px #555;  
 }
   
-button:active 
+.form-wrap button:active 
 {
 	box-shadow: 1px 1px 7px #222;  
 }

@@ -37,7 +37,8 @@
 					}
 				?>
 			</ul>
-		</div>		
+		</div>
+	</section>	
 </section>
 <aside id="myImages">
 		<?php
