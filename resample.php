@@ -37,7 +37,10 @@ $img = $gallery->getUserImage($_SESSION['login']);
 
 for ($i= 0; $i < count($img); $i++)
 {
+	echo "<div class='container'>";
 	echo "<img src='public/images/gallery/" . $img[$i]['path'] . "' />";
+	echo "<button class='btn' id='" . $img[$i]['path'] . "'>Delete</button>";
+	echo "</div>";
 }
 imagedestroy($src);
 imagedestroy($dest);
