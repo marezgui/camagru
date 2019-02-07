@@ -10,64 +10,52 @@
 			<video id="video"></video>
 			<canvas id="canvas"></canvas>		
 			<button id="take">Prendre une photo</button>
-		</main>	
-		<aside id="myImages">
+			<i>Ajouter Photo</i>
+			<input id="imageLoader" type="file"/>
+			<div id="prev"></div>
+			<i>Ajouter Filtre</i>
+			<form method="post" id="form" enctype="multipart/form-data">
+			    <input type="file" id="add_filtre" name="files[]" multiple>
+			    <input type="submit" value="Upload File" name="submit">
+			</form>
+		</main>
+
+		<div >
+			<ul class="navigation_diapo" id="listfiltre">
 				<?php
-					$gallery = new Gallery();
-					$img = $gallery->getUserImage($_SESSION['login']);
+				$dir = array_diff(scandir("public/images/filtre"), array('..', '.'));
+				foreach ($dir as $key => $value) 
+				{
+					$filtre = explode('.', $value);
 				?>
-				<h1> Mes images </h1>
-				<?php 
-					for ($i= 0; $i < count($img); $i++)
-					{
-				?>
-						<img width="120px" height="120px" src='<?= "./public/images/gallery/". $img[$i]['path'] ?>' />
-				<?php
+					<li>
+					<a>
+					<img class='filtre' id='<?= $filtre[0] ?>' src='<?= "./public/images/filtre/". $value ?>' alt>
+					</a>
+					</li>
+				<?php				
 					}
 				?>
-		</aside>
-	</section>
-	<div >
-		<ul class="navigation_diapo">
-			<li>
-				<a>
-					<img id="kitten" src="public/images/filtre/kitten.png" alt>
-				</a>
-			</li>
-			<li>
-				<a>
-					<img id="dog" src="public/images/filtre/dog.png" alt>
-				</a>
-			</li>
-			<li>
-				<a>
-					<img id="cigare" src="public/images/filtre/cigare.png" alt>
-				</a>
-			</li>
-			<li>
-				<a>
-					<img id="billet" src="public/images/filtre/billet.png" alt>
-				</a>
-			</li>
-			<li>
-				<a>
-					<img id="piercing" src="public/images/filtre/piercing.png" alt>
-				</a>
-			</li>
-			<li>
-				<a>
-					<img id="ours" src="public/images/filtre/ours.png" alt>
-				</a>
-			</li>
-			<li>
-				<a>
-					<img id="nuage" src="public/images/filtre/nuage.png" alt>
-				</a>
-			</li>
-		</ul>
-	</div>
+			</ul>
+		</div>		
 </section>
-
+<aside id="myImages">
+		<?php
+			$gallery = new Gallery();
+			$img = $gallery->getUserImage($_SESSION['login']);
+		?>
+		<?php 
+			for ($i= 0; $i < count($img); $i++)
+			{
+		?>
+				<div class="container">
+				<img src='<?= "./public/images/gallery/". $img[$i]['path'] ?>' />
+				<button class="btn" id='<?= $img[$i]['path'] ?>'>Delete</button>
+				</div>
+		<?php
+			}
+		?>
+</aside>
 <script src="public/js/montage.js"></script>
 
 <?php 

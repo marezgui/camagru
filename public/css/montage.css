@@ -1,15 +1,11 @@
-#main_montage
-{
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
 img
 {
 	max-width:100%;
 	image-rendering:optimizeQuality;
+}
+
+#main_montage{
+	display: flex;
 }
 
 .navigation_diapo
@@ -17,8 +13,6 @@ img
 	list-style:none;
 	overflow-x: auto;
 	display:flex;
-	width: 70%;
-	margin: auto;
 }
 
 
@@ -52,18 +46,44 @@ img
 
 #pannel 
 {
-	display: flex;
-	width: 100%;
-	justify-content: space-around;
-	border: 1px solid black;
-	margin-bottom: 15px;
+	margin: auto;
+	width: 500px;
 }
 
 #myImages
 {
-	display: flex;
+	height: 750px;
+	width: 35%;
+	overflow-y: auto;
+	display:flex;
 	flex-direction: column;
-	justify-content: space-around;
-	align-items: center;
-	border: 1px solid black;
 }
+
+/*Delete Photo*/
+
+.container {
+  position: relative;
+}
+
+.container .btn {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-style: normal;
+  font-size: 16px;
+  padding: 12px 24px;  
+  border: solid 2px white;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  background-color: rgba(0,0,0,.2);
+  transition: opacity .3s ease;
+}
+
+.container:hover .btn{
+  opacity: 1;
+}
+

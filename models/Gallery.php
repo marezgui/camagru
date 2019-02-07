@@ -10,6 +10,13 @@ class Gallery extends Manager
 	    $req->execute(array($id_user, $path));
 	}
 
+	function delImages($id_image)
+	{
+		$db = $this->dbConnect();
+	    $req = $db->prepare('DELETE FROM images WHERE path = ?');
+	    $req->execute(array($id_image));
+	}
+
 	function getImages()
 	{
 		$db = $this->dbConnect();

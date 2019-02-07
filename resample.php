@@ -1,10 +1,9 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'] . '/camagru/controllers/session.php';
+
+require $_SERVER['DOCUMENT_ROOT'] . '/camagru/controllers/session.php'; 
 require $_SERVER['DOCUMENT_ROOT'] . '/camagru/models/Gallery.php';
 
-// $gallery = new Gallery();
-
-// $gallery->addImages(1, "test.png");
+ob_start();
 
 $size = $_POST["size"];
 $dst_x = $_POST["dst_x"];
@@ -34,6 +33,15 @@ imagepng($dst, 'public/images/gallery/' . $file);
 $gallery = new Gallery();
 $gallery->addImages($_SESSION['id'], $file);
 
+$img = $gallery->getUserImage($_SESSION['login']);
+
+for ($i= 0; $i < count($img); $i++)
+{
+	echo "<div class='container'>";
+	echo "<img src='public/images/gallery/" . $img[$i]['path'] . "' />";
+	echo "<button class='btn' id='" . $img[$i]['path'] . "'>Delete</button>";
+	echo "</div>";
+}
 imagedestroy($src);
 imagedestroy($dest);
 ?>
