@@ -1,60 +1,35 @@
 <?php require $_SERVER['DOCUMENT_ROOT'] . '/camagru/controllers/inscription.php'; ?>
 
 <?php ob_start(); ?>
-<form method="POST" action="">
-	<fieldset>
-		<legend>Inscription</legend>
-		<table>
-			<tr>
-				<td><label for="firstName">Nom :</label></td>
-				<td><input id="firstName" name="firstName" type="text" value="<?php if (isset($firstName)) { echo $firstName; } ?>" maxlength="15" minlength="2"/></td>
-			</tr>
+<section class="form-wrap">
+	<form method="POST" action="">
+		<h2 class="form-heading">Inscription</h2>
+			
+				<input id="firstName" name="firstName" type="text" value="<?php if (isset($firstName)) { echo $firstName; } ?>" maxlength="15" minlength="2" placeholder="Nom :"/>
+			
+				<input id="lastName" name="lastName" type="text" value="<?php if (isset($lastName)) { echo $lastName; } ?>" maxlength="15" minlength="2" placeholder="Prenom :"/>
+			
+				<input id="mail" name="mail" type="email" value="<?php if (isset($mail)) { echo $mail; } ?>" maxlength="40" placeholder="E-Mail" />
+			
+				<input id="mail2" name="mail2" type="email" value="<?php if (isset($mail2)) { echo $mail2; } ?>" maxlength="40" placeholder="Confirmation de l'e-Mail" />
 
-			<tr>
-				<td><label for="lastName">Prenom :</label></td>
-				<td><input id="lastName" name="lastName" type="text" value="<?php if (isset($lastName)) { echo $lastName; } ?>" maxlength="15" minlength="2"/></td>
-			</tr>
-
-			<tr>
-				<td><label for="mail">E-Mail :</label></td>
-				<td><input id="mail" name="mail" type="email" value="<?php if (isset($mail)) { echo $mail; } ?>" maxlength="40"/></td>
-			</tr>
-
-			<tr>
-				<td><label for="mail2">Confirmation E-Mail :</label></td>
-				<td><input id="mail2" name="mail2" type="email" value="<?php if (isset($mail2)) { echo $mail2; } ?>" maxlength="40"/></td>
-			</tr>
-
-			<tr>
-				<td><label for="login">Pseudo : (4 caractères min.)</label></td>
-				<td><input id="login" name="login" type="text" value="<?php if (isset($login)) { echo $login; } ?>" maxlength="15" minlength="3" pattern=".{4,}" required title="4 caractères minimum"/></td>
-			</tr>
-
-			<tr>
-				<td><label for="password">Mot de passe : (6 caractères min.)</label></td>
-				<td><input id="password" name="password" type="password"  maxlength="50" pattern=".{6,}" required title="6 caractères minimum"/></td>
-			</tr>
-
-			<tr>
-				<td><label for="password2">Confirmation du mot de passe :</label></td>
-				<td><input id="password2" name="password2" type="password"  maxlength="50" pattern=".{6,}" required title="6 caractères minimum"/></td>
-			</tr>
-
-			<tr>
-				<td></td>
-				<td><input type="submit" name="submit" value="Je m'incris!"></td>
-			</tr>
-		</table>
+				<input id="login" name="login" type="text" value="<?php if (isset($login)) { echo $login; } ?>" maxlength="15" minlength="3" pattern=".{4,}" required title="4 caractères minimum" placeholder="Pseudo : (4 caractères min.)"/>
+			
+				<input id="password" name="password" type="password"  maxlength="50" pattern=".{6,}" required title="6 caractères minimum" placeholder="Mot de passe : (6 caractères min.)" />
+			
+				<input id="password2" name="password2" type="password"  maxlength="50" pattern=".{6,}" required title="6 caractères minimum" placeholder="Confirmation du mot de passe"/>
+			
+				<button type="submit" name="submit" >Je m'incris!</button>
 		<?php
 			if (isset($error))
 			{
 		?>
-				<font color='red'> <?= $error ?> </font>
+				<div id="error"> <?= $error ?> </div>
 		<?php 
 			} 
 		?>
-	</fieldset>
-</form>
+	</form>
+</section>
 
 <?php 
 	if (isset($sendMail) && $sendMail)

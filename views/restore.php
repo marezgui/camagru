@@ -2,42 +2,31 @@
 
 <?php ob_start(); ?>
 
-<form method="POST" action="">
-	<fieldset>
-		<legend>Réinitialiser votre mot de passe</legend>
-		<table>
-			<tr>
-				<td><label for="password">Nouveau mot de passe : </label></td>
-				<td><input id="password" name="password" type="password"  maxlength="50" pattern=".{6,}" required title="6 caractères minimum"/></td>
-			</tr>
+<section class="form-wrap">
+	<form method="POST" action="">
+			<h2 class="form-heading">Réinitialiser votre mot de passe</h2>
+					<input id="password" name="password" type="password"  maxlength="50" pattern=".{6,}" required title="6 caractères minimum" placeholder="Nouveau mot de passe :"/>
+				
+					<input id="password2" name="password2" type="password"  maxlength="50" pattern=".{6,}" required title="6 caractères minimum" placeholder=" Confirmation du nouveau mot de passe :"/>
+				
+					<button type="submit" name="submit" >Réinitialiser mon mot de passe</button>
+				
+			<?php
+				if (isset($error))
+				{
+					if ($error != "OK") {
+			?>
+						<div id="error"> <?= $error ?> </div>
+			<?php 
+					} else { 
+			?>
 
-			<tr>
-				<td><label for="password2">Confirmation du nouveau mot de passe : </label></td>
-				<td><input id="password2" name="password2" type="password"  maxlength="50" pattern=".{6,}" required title="6 caractères minimum"/></td>
-			</tr>
-
-			<tr>
-				<td></td>
-				<td><input type="submit" name="submit" value="Réinitialiser mon mot de passe"></td>
-			</tr>
-		</table>
-		<?php
-			if (isset($error))
-			{
-				if ($error != "OK") {
-		?>
-					<font color='red'> <?= $error ?> </font>
-		<?php 
-				} else { 
-		?>
-
-					<font color='green'> Votre mot de passe a bien été réinitialiser. </font>
-		<?php
-			}}		 
-		?>
-	</fieldset>
-</form>
-
+						<div id="success"> Votre mot de passe a bien été réinitialiser. </div>
+			<?php
+				}}		 
+			?>
+	</form>
+</section>
 <?php 
 	$content = ob_get_clean();
 	$title = "Réinitialisation";

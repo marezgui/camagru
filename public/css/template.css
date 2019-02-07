@@ -90,6 +90,9 @@
 	#content
 	{
 		flex-grow:1;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 /* Footer */
@@ -106,7 +109,7 @@
 		font-size: 0.9em;
 		text-align: center;
 	}
-
+/*
     body:after
     {
 		content:'';
@@ -131,7 +134,7 @@
 		  height: 5px;
 		  border-radius: 5px 5px 0 0;
   	}
-
+*/
 	@media screen and (max-width: 736px) 
 	{/*
 		#nav ul li 
@@ -149,22 +152,6 @@
 
 #video { display:none!important; }
 
-/* BUTTON */
-.button 
-{
-	background: black;
-	padding: 1em;
-	color: #fff;
-	border: 0;
-	border-radius: 5px;
-	cursor: pointer;
-}
-
-.button:hover 
-{
-	background: #3876ac;
-}
-
 /* Manage.php */
 
 #notifications td:first-child
@@ -174,25 +161,36 @@
 
 /*-----------------Connexion Page----------------------------*/
 
-
-
-#connexion
+#manage-wrap
 {
 	display: flex;
-	height: 100%;
-	/*border: 10px solid black;*/
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
-.login-wrap {
-	margin: auto;
+.form-wrap
+{
 	background: #ecf0f1;
 	max-width: 350px;
 	min-width: 200px;
-	border-radius: 5px;
+	border-radius: 5%; /* Connexion 25%*/
 	box-shadow: 3px 3px 10px #333;
-	padding: 15px;}
+	padding: 15px;
+}
 
-h2 {
+#manage-wrap section
+{
+	margin: 10px;	
+}
+
+.notif-wrap
+{
+	width: auto;
+
+}
+
+.form-heading
+{
 	text-align: center;
 	font-weight: 200;
 	font-size: 2em;
@@ -200,12 +198,14 @@ h2 {
 	color: #34495e;
 }
 
-.form {
+.form 
+{
 	padding-top: 20px;
 }
-input[type="text"],
-input[type="password"],
-button {
+
+input,
+button 
+{
 	width: 80%;
 	margin-left: 10%;
 	margin-bottom: 25px;
@@ -215,26 +215,30 @@ button {
 	-moz-outline-style: none;
 }
 
-input[type="text"],
-input[type="password"] {
+input 
+{
 	border: 1px solid #bbb;
 	padding: 0 0 0 10px;
-	font-size: 14px;}
-input[type="text"]:focus,
-input[type="password"]:focus {
+	font-size: 14px;
+}
+input:focus 
+{
 	 border: 1px solid #3498db;
 }
 
-a {
+.form-wrap a 
+{
 	text-align: center;
 	font-size: 10px;
 	color: #3498db;
 }
-p{
-  padding-bottom: 10px;
+.form-wrap p
+{
+	padding-bottom: 10px;
 }
 
-button {
+button 
+{
 	background: #e74c3c;
 	border:none;
 	color: white;
@@ -243,10 +247,28 @@ button {
 	cursor: pointer;
 	transition: box-shadow .4s ease;
 }
-button:hover {
-  box-shadow: 1px 1px 5px #555;  
+
+button:hover 
+{
+	box-shadow: 1px 1px 5px #555;  
 }
   
-button:active {
-    box-shadow: 1px 1px 7px #222;  
+button:active 
+{
+	box-shadow: 1px 1px 7px #222;  
+}
+
+#error, #success
+{
+	text-align: center;
+}
+
+#error
+{
+	color: #e74c3c;
+}
+
+#success
+{
+	color: green;
 }

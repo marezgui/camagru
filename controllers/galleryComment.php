@@ -42,10 +42,10 @@ if (isAjax())
 				}
 			}
 			else 
-				echo "Votre commentaire ne doit pas dépasser 500 caractères !";
+				echo "<div id='error'>Votre commentaire ne doit pas dépasser 500 caractères !</div>";
 		}
 		else
-			echo "Le champs commentaire doit être remplis.";
+			echo "<div id='error'>Le champs commentaire doit être remplis.</div>";
 	}
 	die();
 }

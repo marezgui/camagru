@@ -83,10 +83,15 @@
 					{
 						if (strlen($password) > 5)
 						{
-							$password = password_hash($password, PASSWORD_DEFAULT);
-							$userManager = new UserManager();
-							$userManager->updatePassword($login, $password);
-							$errorPassword = "OK";
+							if (preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])./', $password))
+							{
+								$password = password_hash($password, PASSWORD_DEFAULT);
+								$userManager = new UserManager();
+								$userManager->updatePassword($login, $password);
+								$errorPassword = "OK";
+							}
+							else 
+								$errorPassword = "Votre mot de passe doit au moins contenir une lettre en minuscule, une lettre en majuscule et un chiffre.";
 						}
 						else
 							$errorPassword = "Votre mot de passe est trop court ! (6 caractères min.)";
