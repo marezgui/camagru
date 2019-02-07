@@ -1,11 +1,16 @@
+let body = 	document.getElementsByTagName("body")[0];
+
 function openModal(modal) 
 {
 	modal.style.display = 'block';
+	body.style.overflowY = "hidden";
+
 }
 
 function closeModal(modal) 
 {
 	modal.style.display = 'none';
+	body.style.overflowY = "auto";
 }
 
 function outsideClick(e) 
@@ -16,6 +21,7 @@ function outsideClick(e)
 		if (e.target == modal[i]) 
 	  	{
 	    	modal[i].style.display = 'none';
+	    	body.style.overflowY = "auto";
 	  	}
   	}
 }

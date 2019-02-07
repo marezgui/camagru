@@ -1,4 +1,6 @@
-function comment(form, result)
+let textarea = document.getElementsByTagName("textarea");
+
+function comment(form, list, cptr)
 {
 	let data = new FormData(form);
 	let xhr = getXMLHttpRequest();
@@ -8,12 +10,12 @@ function comment(form, result)
 		if (this.readyState == 4 && (this.status == 200))
 		{
 			let postback = this.responseText;
-
-			result.innerHTML = postback;
-		}
-		else 
-		{
-			//alert('Impossible de contacter le serveur !');
+			list.insertAdjacentHTML('afterbegin', postback);
+			cptr.innerHTML = (parseInt(cptr.innerHTML, 10) + 1);
+			for (i = 0; i < textarea.length; i ++)
+			{
+				textarea[i].value = "";
+			}	
 		}
 	};
 	xhr.open('POST', form.getAttribute('action'), true);

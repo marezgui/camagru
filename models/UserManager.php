@@ -1,5 +1,5 @@
 <?php 
-require $_SERVER['DOCUMENT_ROOT'] . '/camagru/models/Manager.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/camagru/models/Manager.php';
 
 class UserManager extends Manager
 {
@@ -76,6 +76,15 @@ class UserManager extends Manager
 		$db = $this->dbConnect();
 		$req = $db->prepare('UPDATE users SET password = ? WHERE login = ?');
 		$req->execute(array($newPassword, $login));
+
+		return 1;
+	}
+
+	function updateNotifications($login, $answer)
+	{
+		$db = $this->dbConnect();
+		$req = $db->prepare('UPDATE users SET notifications = ? WHERE login = ?');
+		$req->execute(array($answer, $login));
 
 		return 1;
 	}

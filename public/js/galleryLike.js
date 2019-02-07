@@ -11,10 +11,6 @@ function like(form, result)
 
 			result.innerHTML = postback;
 		}
-		else 
-		{
-			//alert('Impossible de contacter le serveur !');
-		}
 	};
 	xhr.open('POST', form.getAttribute('action'), true);
 	xhr.setRequestHeader('X-Requested-With', 'xmlhttprequest');

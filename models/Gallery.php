@@ -1,5 +1,5 @@
 <?php 
-require $_SERVER['DOCUMENT_ROOT'] . '/camagru/models/Manager.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/camagru/models/Manager.php';
 
 class Gallery extends Manager
 {
@@ -54,7 +54,7 @@ class Gallery extends Manager
 		$db = $this->dbConnect();
 	    $req = $db->prepare('SELECT images.id, images.path, users.login, DATE_FORMAT(images.date, \'%Hh%i le %d/%m/%Y\') AS date FROM images INNER JOIN users ON images.id_user = users.id WHERE images.id = ?');
 	    $req->execute(array($id_image));
-	    $img = $req->fetchAll(PDO::FETCH_ASSOC);
+	    $img = $req->fetch(PDO::FETCH_ASSOC);
 
 	    return $img;
 	}
