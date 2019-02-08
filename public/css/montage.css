@@ -13,6 +13,7 @@ img
 	list-style:none;
 	overflow-x: auto;
 	display:flex;
+	width: 500px;
 }
 
 
@@ -47,7 +48,7 @@ img
 #pannel 
 {
 	margin: auto;
-	width: 500px;
+	width: 600px;
 }
 
 #myImages
@@ -57,6 +58,38 @@ img
 	overflow-y: auto;
 	display:flex;
 	flex-direction: column;
+}
+
+#take 
+{
+	width: 80%;
+	margin-left: 10%;
+	margin-bottom: 25px;
+	height: 40px;
+	border-radius: 5px;
+	outline: 0;
+	-moz-outline-style: none;
+}
+
+#take 
+{
+	background: #e74c3c;
+	border:none;
+	color: white;
+	font-size: 18px;
+	font-weight: 200;
+	cursor: pointer;
+	transition: box-shadow .4s ease;
+}
+
+#take:hover 
+{
+	box-shadow: 1px 1px 5px #555;  
+}
+  
+#take:active 
+{
+	box-shadow: 1px 1px 7px #222;  
 }
 
 /*Delete Photo*/

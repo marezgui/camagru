@@ -11,7 +11,7 @@ var streaming = false,
 	btn			= document.getElementsByClassName("btn"),
 	allfiltre	= document.getElementsByClassName("filtre"),
 	img 		= new Image(),
-	dataUrl,
+	dataUrl	,
 	img_h	= frame.naturalHeight,
 	img_w	= frame.naturalWidth,
 	idfiltre = "kitten",
@@ -114,25 +114,28 @@ function get_filtre()
 {
 	size = 0.6;
 	idfiltre = this.id;
-	frame = document.querySelector('#' + idfiltre);
+	frame = document.getElementById(idfiltre);
 	img_h = frame.naturalHeight;
 	img_w = frame.naturalWidth;
 }
 
 take.addEventListener('click', function(){
-	let xhttp;
-	xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-	if (this.readyState == 4 && this.status == 200) {
-		document.getElementById("myImages").innerHTML = this.responseText;
-		for (var i = 0; i < btn.length; i++) {
-		    btn[i].addEventListener('click', delete_image, false);
+	if (dataUrl != "data:,")
+	{
+		let xhttp;
+		xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			document.getElementById("myImages").innerHTML = this.responseText;
+			for (var i = 0; i < btn.length; i++) {
+			    btn[i].addEventListener('click', delete_image, false);
+			}
 		}
+		};
+		xhttp.open("POST", "resample.php", true);
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.send("size="+size+"&dst_x="+setoffX+"&dst_y="+setoffY+"&filtre="+idfiltre+".png"+"&photo="+dataUrl);
 	}
-	};
-	xhttp.open("POST", "resample.php", true);
-	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhttp.send("size="+size+"&dst_x="+setoffX+"&dst_y="+setoffY+"&filtre="+idfiltre+".png"+"&photo="+dataUrl);
 });
 
 
@@ -208,7 +211,6 @@ form.addEventListener('submit', e => {
     xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-    	console.log(this.responseText);
     	document.getElementById("listfiltre").innerHTML = this.responseText;
     	for (var i = 0; i < allfiltre.length; i++) {
     	    allfiltre[i].addEventListener('click', get_filtre, false);
