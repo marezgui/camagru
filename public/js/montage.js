@@ -12,6 +12,7 @@ var streaming = false,
 	allfiltre	= document.getElementsByClassName("filtre"),
 	img 		= new Image(),
 	dataUrl	,
+	camera	= 0,
 	img_h	= frame.naturalHeight,
 	img_w	= frame.naturalWidth,
 	idfiltre = "kitten",
@@ -43,8 +44,10 @@ navigator.getMedia(
 		video.srcObject = stream;
 	}
 	video.play();
+	camera = 1;
 	},
 	function(err) {
+		height = 375;
 	console.log("An error occured! " + err);
 	}
 );
@@ -62,7 +65,6 @@ video.addEventListener('canplay', function(ev){
 
 canvas.addEventListener('mousemove', function(e)
 {
-	img_w
 	if (mouse == '1')
 	{
 		setoffX = e.offsetX - img_w/2*size;
@@ -76,7 +78,7 @@ document.addEventListener("load", updateCanvas());
 
 function updateCanvas()
 {
-	if (img['src'] == '')
+	if (img['src'] == '' && camera == 1)
 		ctx.drawImage(video, 0, 0, width, height);
 	else
 		ctx.drawImage(img, 0, 0, width, height);
@@ -187,7 +189,8 @@ function handleImage(e){
 
 		}
 		reader.readAsDataURL(e.target.files[0]);
-
+		canvas.setAttribute('width', 500);
+		canvas.setAttribute('height', 375);
 	}
 	else
 		alert("It's not an image");
