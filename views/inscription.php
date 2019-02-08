@@ -1,8 +1,9 @@
-<?php require $_SERVER['DOCUMENT_ROOT'] . '/camagru/controllers/inscription.php'; ?>
+ <?php require $_SERVER['DOCUMENT_ROOT'] . '/camagru/controllers/session.php'; ?>
+
 
 <?php ob_start(); ?>
 <section class="form-wrap">
-	<form method="POST" action="">
+	<form id="form" method="POST" action="/camagru/controllers/inscription.php">
 		<h2 class="form-heading">Inscription</h2>
 			
 				<input id="firstName" name="firstName" type="text" value="<?php if (isset($firstName)) { echo $firstName; } ?>" maxlength="15" minlength="2" placeholder="Nom :"/>
@@ -20,26 +21,14 @@
 				<input id="password2" name="password2" type="password"  maxlength="50" pattern=".{6,}" required title="6 caractères minimum" placeholder="Confirmation du mot de passe"/>
 			
 				<button type="submit" name="submit" >Je m'incris!</button>
-		<?php
-			if (isset($error))
-			{
-		?>
-				<div id="error"> <?= $error ?> </div>
-		<?php 
-			} 
-		?>
+				
+				<div id="error"></div>
+				<div id="success"></div>
 	</form>
 </section>
 
-<?php 
-	if (isset($sendMail) && $sendMail)
-	{
-		ob_clean();
-?>
-	<p>Un mail de confirmation vient de vous être envoyer.</p>
-<?php
-	}
-?>
+<script src="../public/js/oXHR.js"></script>
+<script src="../public/js/AjaxInscription.js"></script>
 
 <?php 
 	$content = ob_get_clean();

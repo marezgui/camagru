@@ -1,25 +1,5 @@
-/* LIKE */
-	function like(form, result)
-	{
-		let data = new FormData(form);
-		let xhr = getXMLHttpRequest();
-		
-		xhr.onreadystatechange = function () 
-		{
-			if (this.readyState == 4 && (this.status == 200))
-			{
-				let postback = this.responseText;
-
-				result.innerHTML = postback;
-			}
-		};
-		xhr.open('POST', form.getAttribute('action'), true);
-		xhr.setRequestHeader('X-Requested-With', 'xmlhttprequest');
-		xhr.send(data);
-	}
-
 /* Comment*/
-	function comment(form, list, cptr)
+	function comment(form, list, cptr, errorField)
 	{
 		let data = new FormData(form);
 		let xhr = getXMLHttpRequest();
@@ -29,12 +9,17 @@
 		{
 			if (this.readyState == 4 && (this.status == 200))
 			{
-				if (0)
+				if (this.responseText == "0")
 				{
-					document.querySelector("#error").innerHTML = "Error";
+					errorField.innerHTML = "Le champs commentaire doit être remplis.";
+				}
+				else if (this.responseText == "500")
+				{
+					errorField.innerHTML = "Votre commentaire ne doit pas dépasser 500 caractères !";
 				}	
 				else
 				{
+					errorField.innerHTML = "";
 					let postback = this.responseText;
 					list.insertAdjacentHTML('afterbegin', postback);
 					cptr.innerHTML = (parseInt(cptr.innerHTML, 10) + 1);
@@ -42,6 +27,7 @@
 					{
 						textarea[i].value = "";
 					}
+					
 				}
 			}
 		};

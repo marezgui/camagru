@@ -259,12 +259,12 @@
 	box-shadow: 1px 1px 7px #222;  
 }
 
-#error, #success
+#error, #success, .error
 {
 	text-align: center;
 }
 
-#error
+#error, .error
 {
 	color: #e74c3c;
 }

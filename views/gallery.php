@@ -54,7 +54,7 @@
 											<div class="add-cmt">
 												<textarea name="newCmt" ></textarea>
 												<input type="hidden" name="id_img" value="<?= $img[$i]['id']?>">
-												<button class="cmt-button" type="button" onclick="comment(document.querySelector('#fc-<?= $img[$i]['id'] ?>'), document.querySelector('#cmt-<?= $img[$i]['id'] ?>'), document.querySelector('#c-<?= $img[$i]['id'] ?>'));"> Ajouter ! </button>
+												<button class="cmt-button" type="button" onclick="comment(document.querySelector('#fc-<?= $img[$i]['id'] ?>'), document.querySelector('#cmt-<?= $img[$i]['id'] ?>'), document.querySelector('#c-<?= $img[$i]['id'] ?>'), document.querySelector('#error-<?= $img[$i]['id'] ?>'));"> Ajouter ! </button>
 											</div>
 										</form>
 										<div class="error" id='error-<?= $img[$i]['id'] ?>'></div>
@@ -103,7 +103,8 @@
 </section>
 
 <script src="../public/js/oXHR.js"></script>
-<script src="../public/js/AjaxForm.js"></script>
+<script src="../public/js/AjaxLike.js"></script>
+<script src="../public/js/AjaxComment.js"></script>
 <script src="../public/js/modals.js"></script>
 
 <?php 
