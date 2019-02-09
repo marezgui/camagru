@@ -2,7 +2,7 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_FILES['files'])) {
 	        $errors = [];
-	        $path = './public/images/filtre/';
+	        $path = '../public/images/filtre/';
 		$extensions = ['png'];
 			
 	    $all_files = count($_FILES['files']['tmp_name']);
@@ -23,14 +23,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				move_uploaded_file($file_tmp, $file);
 			}
 		}
-		
-			$dir = array_diff(scandir("public/images/filtre"), array('..', '.'));
+			$path = $_SERVER['DOCUMENT_ROOT']."/camagru/public/images/filtre";
+			$dir = array_diff(scandir($path), array('..', '.'));
 			foreach ($dir as $key => $value) 
 			{
 				$filtre = explode('.', $value);
 				echo "<li>";
 				echo "<a>";
-				echo "<img class='filtre' id='" . $filtre[0] . "' src='./public/images/filtre/". $value ."' alt>";
+				echo "<img class='filtre' id='" . $filtre[0] . "' src='/camagru/public/images/filtre/". $value ."' alt>";
 				echo "</a>";
 				echo "</li>";	
 			}

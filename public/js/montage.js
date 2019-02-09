@@ -134,7 +134,7 @@ take.addEventListener('click', function(){
 			}
 		}
 		};
-		xhttp.open("POST", "resample.php", true);
+		xhttp.open("POST", "/camagru/controllers/resample.php", true);
 		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhttp.send("size="+size+"&dst_x="+setoffX+"&dst_y="+setoffY+"&filtre="+idfiltre+".png"+"&photo="+dataUrl);
 	}
@@ -158,7 +158,7 @@ function delete_image(){
 		}
 	}
 	};
-	xhttp.open("POST", "delete.php", true);
+	xhttp.open("POST", "/camagru/controllers/delete.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send("id_image="+this.id);
 };
@@ -189,15 +189,14 @@ function handleImage(e){
 
 		}
 		reader.readAsDataURL(e.target.files[0]);
-		canvas.setAttribute('width', 500);
-		canvas.setAttribute('height', 375);
+		canvas.setAttribute('width', width);
+		canvas.setAttribute('height', height);
 	}
 	else
 		alert("It's not an image");
 }
 
 //Download filtre
-const url = 'process.php';
 const form = document.querySelector('#form');
 
 form.addEventListener('submit', e => {
@@ -220,7 +219,7 @@ form.addEventListener('submit', e => {
     	}
     }
     };
-    xhttp.open("POST", "process.php", true);
+    xhttp.open("POST", "/camagru/controllers/process.php", true);
     xhttp.send(formData);
 });
 })();

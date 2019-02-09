@@ -48,7 +48,7 @@
                     if (isset($_SESSION['login']) && !empty($_SESSION['login']))
                     {
                 ?>
-                        <li><a href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/montage.php' ?>" ><i class="fas fa-camera-retro"></i></a></li>
+                        <li><a href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/views/montage.php' ?>" ><i class="fas fa-camera-retro"></i></a></li>
                         <li>
                             <a href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/views/manage.php' ?>">
                                 <i class="far fa-user"></i>

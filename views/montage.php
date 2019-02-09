@@ -23,14 +23,15 @@
 		<div >
 			<ul class="navigation_diapo" id="listfiltre">
 				<?php
-				$dir = array_diff(scandir("public/images/filtre"), array('..', '.'));
+				$path = $_SERVER['DOCUMENT_ROOT']."/camagru/public/images/filtre";
+				$dir = array_diff(scandir($path), array('..', '.'));
 				foreach ($dir as $key => $value) 
 				{
 					$filtre = explode('.', $value);
 				?>
 					<li>
 					<a>
-					<img class='filtre' id='<?= $filtre[0] ?>' src='<?= "./public/images/filtre/". $value ?>' alt>
+					<img class='filtre' id='<?= $filtre[0] ?>' src='<?= "/camagru/public/images/filtre/". $value ?>'alt>
 					</a>
 					</li>
 				<?php				
@@ -50,14 +51,14 @@
 			{
 		?>
 				<div class="container">
-				<img src='<?= "./public/images/gallery/". $img[$i]['path'] ?>' />
+				<img src='<?= "/camagru/public/images/gallery/". $img[$i]['path'] ?>' />
 				<button class="btn" id='<?= $img[$i]['path'] ?>'>Delete</button>
 				</div>
 		<?php
 			}
 		?>
 </aside>
-<script src="public/js/montage.js"></script>
+<script src="/camagru/public/js/montage.js"></script>
 
 <?php 
 	$content = ob_get_clean();
