@@ -27,7 +27,6 @@
 	</form>
 </section>
 
-<script src="../public/js/oXHR.js"></script>
 <script src="../public/js/AjaxInscription.js"></script>
 
 <?php 

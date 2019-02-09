@@ -1,5 +1,6 @@
 let form = document.querySelector('#form');
 let error = document.querySelector('#error');
+let success = document.querySelector('#success');
 
 form.addEventListener('submit', function (e){
 	
@@ -14,15 +15,20 @@ form.addEventListener('submit', function (e){
 		if (this.readyState == 4 && (this.status == 200))
 		{
 			let postback = this.responseText;
-			
-			if (postback == "1")
+
+			alert(postback.length);
+			if (postback.length == 6)
 			{
 				document.location.href = "../index.php";
 			}
-			else
+			else if (postback.length == 3)
 			{
-				error.innerHTML = postback;
+				error.innerHTML = "";
+				success.innerHTML = "Votre mot de passe a bien été réinitialiser."
+				form.reset();
 			}
+			else
+				error.innerHTML = postback;
 		}
 	};
 

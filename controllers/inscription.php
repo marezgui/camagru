@@ -49,7 +49,6 @@ if (isAjax())
 														$confirmKey = md5(rand(0,1000));
 														$userManager->newUser(strtolower($firstName), strtolower($lastName), strtolower($mail), strtolower($login), $password, $confirmKey);
 														$sendMail = confirmationMail(strtolower($login), $mail, $confirmKey, 1);
-														echo "1";
 													}
 													else 
 														echo "Votre mot de passe doit au moins contenir une lettre en minuscule, une lettre en majuscule et un chiffre.";

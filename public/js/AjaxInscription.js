@@ -11,19 +11,19 @@ form.addEventListener('submit', function (e){
 	
 	xhr.onreadystatechange = function () 
 	{
-		
 		if (this.readyState == 4 && (this.status == 200))
 		{
 			let postback = this.responseText;
 			
-			if (postback == "1")
+			if (postback.length > 1)
 			{
-				error.innerHTML = "";
-				error.innerHTML = "Un mail de confirmation vient de vous être envoyer."
+				error.innerHTML = postback;
 			}
 			else
 			{
-				error.innerHTML = postback;
+				error.innerHTML = "";
+				success.innerHTML = "Un mail de confirmation vient de vous être envoyer.";
+				form.reset();
 			}
 		}
 	};

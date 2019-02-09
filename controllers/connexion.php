@@ -25,6 +25,7 @@ if (isAjax())
 				$_SESSION['mail'] = $user['mail'];
 				$_SESSION['login'] = $user['login'];
 				$_SESSION['registrationDate'] = $user['registrationDate'];
+				$_SESSION['notifications'] = $user['notifications'];
 				echo "1";
 			}
 			else

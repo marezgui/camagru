@@ -16,11 +16,13 @@ function setup($dbh,$dbname)
 			`mail` varchar(255) NOT NULL,
 			`login` varchar(255) NOT NULL,
 			`password` varchar(255) NOT NULL,
+			`notifications` tinyint(1) NOT NULL DEFAULT '1',
 			`registrationDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
 			`activate` tinyint(1) DEFAULT NULL,
 			`confirmKey` varchar(255) NOT NULL,
 			`restoreKey` varchar(255) DEFAULT NULL
 		) ";
+
 	$result = $dbh->exec($sql); 
 
 	$sql = "CREATE TABLE IF NOT EXISTS `images` (

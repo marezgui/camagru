@@ -17,7 +17,6 @@
 	</form>
 </section>
 
-<script src="../public/js/oXHR.js"></script>
 <script src="../public/js/AjaxConnexion.js"></script>
 
 <?php 

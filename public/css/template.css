@@ -185,8 +185,14 @@
 
 .notif-wrap
 {
-	width: auto;
-
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #ecf0f1;
+	border-radius: 5%; /* Connexion 25%*/
+	box-shadow: 3px 3px 10px #333;
+	padding: 15px;
+	height: auto;
 }
 
 .form-heading
@@ -259,7 +265,7 @@
 	box-shadow: 1px 1px 7px #222;  
 }
 
-#error, #success, .error
+#error, #success, .error, .success
 {
 	text-align: center;
 }
@@ -269,7 +275,7 @@
 	color: #e74c3c;
 }
 
-#success
+#success, .success
 {
 	color: green;
 }

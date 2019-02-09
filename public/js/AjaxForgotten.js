@@ -1,5 +1,6 @@
 let form = document.querySelector('#form');
 let error = document.querySelector('#error');
+let success = document.querySelector('#success');
 
 form.addEventListener('submit', function (e){
 	
@@ -15,14 +16,14 @@ form.addEventListener('submit', function (e){
 		{
 			let postback = this.responseText;
 			
-			if (postback == "1")
+			if (postback == "OK")
 			{
-				document.location.href = "../index.php";
+				error.innerHTML = "";
+				success.innerHTML = "Un mail de réinitialisation de mot de passe vient de vous être envoyé !"
+				form.reset();
 			}
 			else
-			{
 				error.innerHTML = postback;
-			}
 		}
 	};
 

@@ -33,6 +33,7 @@
                  }
                };
         </script>
+        <script src="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/public/js/oXHR.js' ?>"></script>
     </head>
         
     <body>
