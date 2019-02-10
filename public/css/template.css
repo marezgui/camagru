@@ -218,7 +218,7 @@
 }
 
 .form-wrap input,
-.form-wrap button
+.form-wrap button, #take 
 {
 	width: 80%;
 	margin-left: 10%;
@@ -252,7 +252,7 @@
 	padding-bottom: 10px;
 }
 
-.form-wrap button 
+.form-wrap button, #take 
 {
 	background: #e74c3c;
 	border:none;
@@ -263,12 +263,12 @@
 	transition: box-shadow .4s ease;
 }
 
-.form-wrap > button:hover 
+.form-wrap > button:hover, #take:hover 
 {
 	box-shadow: 1px 1px 5px #555;  
 }
   
-.form-wrap button:active 
+.form-wrap button:active, #take:active
 {
 	box-shadow: 1px 1px 7px #222;  
 }
