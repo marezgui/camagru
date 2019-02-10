@@ -11,22 +11,35 @@ $dst_y = $_POST["dst_y"];
 $filtre = $_POST["filtre"];
 $photo = $_POST["photo"];
 
+$size = explode(',', $size);
+$dst_x = explode(',', $dst_x);
+$dst_y = explode(',', $dst_y);
+$filtre = explode(',', $filtre);
+
+$nbfiltre = count($filtre);
+
+$filtre_array = array($size, $dst_x, $dst_y, $filtre);
+
 $photo = str_replace('data:image/png;base64,', '', $photo);
 $photo = str_replace(' ', '+', $photo);
 $data = base64_decode($photo);
-
-$filename = '../public/images/filtre/'.$filtre;
-
-list($width, $height) = getimagesize($filename);
-$new_width = $width * $size;
-$new_height = $height * $size;
 
 $file = uniqid() . '.png';
 file_put_contents('../public/images/gallery/' . $file, $data);
 
 $dst = imagecreatefrompng('../public/images/gallery/' . $file);
-$src = imagecreatefrompng($filename);
-imagecopyresampled($dst, $src, $dst_x, $dst_y, 0, 0, $new_width, $new_height, $width, $height);
+
+$i = 0;
+while ($i < $nbfiltre)
+{
+	$filename = '../public/images/filtre/'.$filtre_array[3][$i].'.png';
+	list($width, $height) = getimagesize($filename);
+	$new_width = $width * $filtre_array[0][$i];
+	$new_height = $height * $filtre_array[0][$i];
+	$src = imagecreatefrompng($filename);
+	imagecopyresampled($dst, $src, $filtre_array[1][$i], $filtre_array[2][$i], 0, 0, $new_width, $new_height, $width, $height);
+	$i++;
+}
 
 imagepng($dst, '../public/images/gallery/' . $file);
 

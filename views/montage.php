@@ -9,7 +9,8 @@
 		<video id="video"></video>
 		<canvas width="100%" height="100%" id="canvas"></canvas>		
 		<button id="take"><i class="fas fa-camera"></i> Prendre une photo</button>
-
+		<button id="addfiltre">Ajouter filtre</button>
+		<button id="nofiltre">Enlever filtre</button>
 		<i>Ajouter Photo</i>
 		<input id="imageLoader" type="file"/>
 		<div id="prev"></div>
