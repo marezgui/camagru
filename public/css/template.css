@@ -15,6 +15,12 @@
 		color: #2c2c34;
 	}
 
+	@font-face 
+	{
+	    font-family: 'blackRose';
+	    src: url('font/BLACKR.ttf') format('truetype');
+	}
+
 /* Menu */
 
 	#nav 
@@ -83,6 +89,8 @@
 	{
 		background: #f2f2f2;
 		text-align: center;
+		font-family: blackRose;
+		font-size: 1.5em;
 	}
 
 /* Content */
@@ -210,7 +218,7 @@
 }
 
 .form-wrap input,
-.form-wrap button 
+.form-wrap button
 {
 	width: 80%;
 	margin-left: 10%;

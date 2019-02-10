@@ -13,7 +13,7 @@
 				{
 			?>
 					<div class="media">
-						<a href="#">
+						<a href="javascript:{}" onclick="openModal(document.querySelector('#modal-<?= $img[$i]['id'] ?>'));">
 							<img src='<?= "../public/images/gallery/". $img[$i]['path'] ?>' alt="" title="" />
 							<input type="hidden" name="id_img" value='<?= $img[$i]['id']?>'>
 						</a>
@@ -64,15 +64,15 @@
 								<?php 
 									$comments = getComments($img[$i]['id']);
 								?>
-										<div id='cmt-<?= $img[$i]['id'] ?>'>
+										<div class="cmt-content" id='cmt-<?= $img[$i]['id'] ?>'>
 										<?php
 											foreach ($comments as $comment) 
 											{
 										?>
 												<p class="cmt-user" ><?= $comment['login'] ?></p>
 												<p class="cmt"><?= $comment['comment'] ?></p>
-												<p><?= $comment['date'] ?></p>
-												<hr>
+												<p class="cmt-date"><?= $comment['date'] ?></p>
+												
 										<?php
 											}
 										?>

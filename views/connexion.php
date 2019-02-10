@@ -1,3 +1,6 @@
+<?php require $_SERVER['DOCUMENT_ROOT'] . '/camagru/controllers/session.php'; ?>
+<?php if (isset($_SESSION['id'])) header ('location: ../index.php'); ?>
+
 <?php ob_start(); ?>
 
 <section class="form-wrap">

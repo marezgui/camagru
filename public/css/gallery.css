@@ -20,14 +20,13 @@
 			/*--------------*/
 			margin-bottom: 0;
 			overflow: hidden;
-			margin: 0px 0px 7px 0px;
+			margin: 0px 0px 7px 5px;
 			padding: 0px 0px 0px 0px;
 		}
 			#gallery #content .media img 
 			{
 				/*--------------*/
 				width: 300px;
-				height: 300px;
 			}
 				#gallery #content .media .underImg
 				{
@@ -120,7 +119,9 @@
 .modal-body 
 {
 	padding: 10px 20px;
-	background: #fff;
+		box-shadow: 3px 3px 10px #333;
+	padding: 15px;
+	background: #ecf0f1;
 }
 
 .modal-body img 
@@ -146,10 +147,40 @@
 		width: 80%;
 	}
 
-	.cmt-button /* Reset template style*/
+	.cmt-button 
 	{
 		width: auto;
 		margin-left: 0%;
+		border-radius: 5px;
+		background: #e74c3c;
+		border:none;
+		color: white;
+		cursor: pointer;
+	}
+
+	.cmt-button:hover 
+	{
+		box-shadow: 1px 1px 5px #555;  
+	}
+	  
+	.cmt-button:active 
+	{
+		box-shadow: 1px 1px 7px #222;  
+	}
+
+	.cmt-content
+	{
+		margin-top: 10px;
+	}
+
+	.cmt
+	{
+		margin-left: 10px;
+	}
+
+	.cmt-date
+	{
+		font-size: 0.7em;
 	}
 
 .modal-footer 
