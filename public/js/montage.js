@@ -21,13 +21,22 @@ var streaming = false,
 	size	= [0.6],
 	setoffX = [0],
 	setoffY = [0],
-	width	= window.innerWidth * 0.25,
+	width	= window.innerWidth,
 	mouse	= 1,
-	height	= window.innerHeight * 0.6;
+	height	= window.innerHeight;
 
+canvas.width = width * 0.5;
+canvas.height = height * 0.5;
 
-canvas.width = width;
-canvas.height = height;
+window.addEventListener("resize", updateSize);
+
+function updateSize()
+{
+	width = window.innerWidth;
+	height = window.innerHeight;
+	canvas.width = width * 0.5;
+	canvas.height = height * 0.5;
+};
 
 navigator.getMedia = ( navigator.getUserMedia ||
 						navigator.webkitGetUserMedia ||
