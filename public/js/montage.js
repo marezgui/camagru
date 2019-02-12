@@ -24,35 +24,21 @@ var streaming = false,
 	width	=  window.innerWidth * 0.30,
 	mouse	= 1,
 	height	= 0,
-	heightInner = window.innerWidth *0.2 ;
+	heightInner = width*0.9 ;
 
 canvas.width = width;
 canvas.height = height;
 
 window.addEventListener("resize", updateSize);
 
-function resizzler(){
-       var maxWidth = screen.width;
-       var maxHeight = screen.height();
-       var ratio = window.innerHeight / window.innerHeight;
-
-       if(maxWidth * ratio > maxHeight) {
-           $main.height(maxHeight).width(maxHeight / ratio);
-       } else {
-           $main.width(maxWidth).height(maxWidth * ratio);
-       }
-       $("#preload").width($main.width()).height($main.height());
-   }
-
-
 
 function updateSize()
-{
-	console.log(screen.width / (screen.width/ window.innerWidth) ,screen.height / (screen.height / window.innerHeight));
-	height = heightInner;	
-	width	=  window.innerWidth *0.30;
+{	
+	width	=  window.innerWidth *0.3;
+	height = width*0.9;	
 	canvas.width = width;
 	canvas.height = height;
+	console.log(height, width, window.innerHeight, window.innerWidth);
 };
 
 navigator.getMedia = ( navigator.getUserMedia ||
@@ -111,7 +97,7 @@ addfiltre.addEventListener('click', function(){
 
 video.addEventListener('canplay', function(ev){
 	if (!streaming) {
-	height = heightInner;
+	height = width*0.9;
 	video.setAttribute('width', width);
 	video.setAttribute('height', height);
 	canvas.setAttribute('width', width);
