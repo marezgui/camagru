@@ -19,7 +19,7 @@ for ($i= 0; $i < count($img); $i++)
 {
 	echo "<div class='container'>";
 	echo "<img src='/camagru/public/images/gallery/" . $img[$i]['path'] . "' />";
-	echo "<button class='btn' id='" . $img[$i]['path'] . "'>Delete</button>";
+	echo "<button class='btn' id='" . $img[$i]['path'] . "'>Supprimer</button>";
 	echo "</div>";
 }
 ?>

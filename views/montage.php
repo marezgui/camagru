@@ -8,21 +8,23 @@
 	<main id="camera" >
 		<video id="video"></video>
 		<canvas width="100%" height="100%" id="canvas"></canvas>		
-		<button id="take"><i class="fas fa-camera"></i> Prendre une photo</button>
-		<button id="addfiltre">Ajouter filtre</button>
-		<button id="nofiltre">Enlever filtre</button>
+		<button id="take" class="take"><i class="fas fa-camera"></i> Prendre une photo</button>
+		<div id="filter-qte">
+			<button class="take" id="addfiltre"><i class="fas fa-plus"></i> Ajouter</button>
+			<button class="take" id="nofiltre"><i class="fas fa-minus"></i> Enlever</button>	
+		</div>
 		<i>Ajouter Photo</i>
 		<input id="imageLoader" type="file"/>
 		<div id="prev"></div>
 
 		<i>Ajouter Filtre</i>
 		<form method="post" id="form" enctype="multipart/form-data">
-		    <input type="file" id="add_filtre" name="files[]" multiple>
-		    <input type="submit" value="Upload File" name="submit">
+		    <submit type="file" id="add_filtre" name="files[]" multiple>
+		    <submit type="submit" value="Upload File" name="submit">
 		</form>
 	</main>
 
-	<div >
+	<aside>
 		<ul class="navigation_diapo" id="listfiltre">
 			<?php
 				$path = $_SERVER['DOCUMENT_ROOT']."/camagru/public/images/filtre";
@@ -40,7 +42,7 @@
 				}
 			?>
 		</ul>
-	</div>
+	</aside>
 </section>
 
 <aside id="myImages">

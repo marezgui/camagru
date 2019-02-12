@@ -21,21 +21,19 @@ var streaming = false,
 	size	= [0.6],
 	setoffX = [0],
 	setoffY = [0],
-	width	= window.innerWidth,
+	width	=  window.innerWidth * 0.5,
 	mouse	= 1,
-	height	= window.innerHeight;
+	height	= window.innerHeight * 0.5;
 
-canvas.width = width * 0.5;
-canvas.height = height * 0.5;
+canvas.width = width;
+canvas.height = height;
 
 window.addEventListener("resize", updateSize);
 
 function updateSize()
 {
 	width = window.innerWidth;
-	height = window.innerHeight;
 	canvas.width = width * 0.5;
-	canvas.height = height * 0.5;
 };
 
 navigator.getMedia = ( navigator.getUserMedia ||

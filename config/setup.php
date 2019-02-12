@@ -51,7 +51,7 @@ function setup($dbh,$dbname)
 
 	// creation de l'administrateur avec mot de passe 1234
 	$sql = "INSERT INTO users (id, firstName, lastName, mail, login, password, registrationDate, activate, confirmKey, restoreKey) VALUES
-(1, 'Rezgui', 'Malek', 'm.rezgui12@gmail.com', 'marezgui', '$2y$10$kcxBrl5LkNSCR4.Lj/GrT.ORjCCZMHB8G6wSHwF/E3WJSx3Beg5f6', '2019-01-27 00:00:00', 1, '777', NULL);";
+(1, 'Rezgui', 'Malek', 'm.rezgui12@gmail.com', 'marezgui', '$2y$10$YImWH8WPvzktL4WahZbxAOjxbHRWHyquWibbMQggw2wP7rwXSvz/u', '2019-01-27 00:00:00', 1, '777', NULL);";
 	$result = $dbh->exec($sql);
 }
 

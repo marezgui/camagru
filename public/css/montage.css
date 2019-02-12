@@ -12,6 +12,7 @@ img
 	align-items: center;
 	height: 100%;
 	margin-left: 7px;
+	border: 1px solid black;
 }
 	#camera 
 	{
@@ -63,6 +64,7 @@ img
 	height: 85vh;
 	width: 315px;
 	overflow-y: auto;
+	border: 1px solid black;
 }
 
 	#myImages img 
@@ -101,10 +103,55 @@ img
 		opacity: 1;
 	}
 
+	.take
+	{
+		margin-bottom: 0.5em;
+	}
+
+	#filter-qte
+	{
+		width: 80%;
+		margin: auto;
+		display: flex;
+		justify-content: space-around;
+	}
+		#addfiltre, #nofiltre
+		{
+			margin: 0; /*reset*/
+			background-color: rgb(30, 100, 255);
+		}
+		#addfiltre
+		{
+			margin-right: 10%;
+		}
+
 @media screen and (max-width: 940px) 
 {
-  #content 
-  {
-  	flex-direction: column;
-  }
+	#content 
+	{
+		flex-direction: column;
+	}
+
+	#addfiltre, #nofiltre, .take
+	{
+		font-size: 1em;
+	}
+
+	.navigation_diapo
+	{ 
+		list-style:none;
+		overflow-x: auto;
+		width: 350px;
+		height: 200px;
+		display:flex;
+		flex-wrap: wrap;
+	}
+
+	.navigation_diapo li a
+	{
+		width:100px;
+		margin:0 2px;
+		height:60px;
+		display: inline-block;
+	}
 }

@@ -36,6 +36,7 @@
 		list-style: none;
 		margin: 0;
 		padding: 0;
+		width: 100%;
 	}
 
 	#nav ul li 
@@ -143,13 +144,57 @@
 		  border-radius: 5px 5px 0 0;
   	}
 */
-	@media screen and (max-width: 736px) 
+	@media screen and (max-width: 812px) 
 	{/*
 		#nav ul li 
 		{
 			width: 4.4em;
 		}
+
 */
+		body
+		{
+			flex-direction: column;
+		}
+
+		#nav
+		{
+			width: auto;
+			height: 3em;
+			padding: 0;
+			margin: 0;
+		}
+
+		#logo
+		{
+			margin-bottom: 0%;
+			font-size: 2.5em;
+		}
+
+		#nav ul 
+		{
+			display: flex;
+			align-items: center;
+			margin: auto;		
+		}
+
+		#nav ul li 
+		{
+			margin: 0;
+			padding: 0;
+			width: 100%;
+		}
+
+		#nav ul li a 
+		{
+			font-size: 2em;
+			padding: 0;
+			width: 2em;
+			text-align: center;
+			margin-bottom: 0em;
+			margin: 0;
+		}
+
 		#footer 
 		{
 			padding: 1em 0 1em 0;
@@ -218,7 +263,7 @@
 }
 
 .form-wrap input,
-.form-wrap button, #take 
+.form-wrap button, .take 
 {
 	width: 80%;
 	margin-left: 10%;
@@ -252,7 +297,7 @@
 	padding-bottom: 10px;
 }
 
-.form-wrap button, #take 
+.form-wrap button, .take 
 {
 	background: #e74c3c;
 	border:none;
@@ -263,12 +308,12 @@
 	transition: box-shadow .4s ease;
 }
 
-.form-wrap > button:hover, #take:hover 
+.form-wrap > button:hover, .take:hover 
 {
 	box-shadow: 1px 1px 5px #555;  
 }
   
-.form-wrap button:active, #take:active
+.form-wrap button:active, .take:active
 {
 	box-shadow: 1px 1px 7px #222;  
 }
