@@ -21,19 +21,38 @@ var streaming = false,
 	size	= [0.6],
 	setoffX = [0],
 	setoffY = [0],
-	width	=  window.innerWidth * 0.5,
+	width	=  window.innerWidth * 0.30,
 	mouse	= 1,
-	height	= window.innerHeight * 0.5;
+	height	= 0,
+	heightInner = window.innerWidth *0.2 ;
 
 canvas.width = width;
 canvas.height = height;
 
 window.addEventListener("resize", updateSize);
 
+function resizzler(){
+       var maxWidth = screen.width;
+       var maxHeight = screen.height();
+       var ratio = window.innerHeight / window.innerHeight;
+
+       if(maxWidth * ratio > maxHeight) {
+           $main.height(maxHeight).width(maxHeight / ratio);
+       } else {
+           $main.width(maxWidth).height(maxWidth * ratio);
+       }
+       $("#preload").width($main.width()).height($main.height());
+   }
+
+
+
 function updateSize()
 {
-	width = window.innerWidth;
-	canvas.width = width * 0.5;
+	console.log(screen.width / (screen.width/ window.innerWidth) ,screen.height / (screen.height / window.innerHeight));
+	height = heightInner;	
+	width	=  window.innerWidth *0.30;
+	canvas.width = width;
+	canvas.height = height;
 };
 
 navigator.getMedia = ( navigator.getUserMedia ||
@@ -57,7 +76,7 @@ navigator.getMedia(
 	camera = 1;
 	},
 	function(err) {
-		height = window.innerHeight * 0.6;
+		height = heightInner;
 	console.log("An error occured! " + err);
 	}
 );
@@ -92,7 +111,7 @@ addfiltre.addEventListener('click', function(){
 
 video.addEventListener('canplay', function(ev){
 	if (!streaming) {
-	height = window.innerHeight * 0.6;
+	height = heightInner;
 	video.setAttribute('width', width);
 	video.setAttribute('height', height);
 	canvas.setAttribute('width', width);

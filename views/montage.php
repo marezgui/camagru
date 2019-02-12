@@ -19,9 +19,9 @@
 
 		<i>Ajouter Filtre</i>
 		<form method="post" id="form" enctype="multipart/form-data">
-		    <submit type="file" id="add_filtre" name="files[]" multiple>
-		    <submit type="submit" value="Upload File" name="submit">
-		</form>
+		    <input type="file" id="add_filtre" name="files[]" multiple>
+		    <input type="submit" value="Upload File" name="submit">
+		</form>		
 	</main>
 
 	<aside>

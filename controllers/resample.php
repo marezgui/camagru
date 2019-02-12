@@ -43,6 +43,15 @@ while ($i < $nbfiltre)
 
 imagepng($dst, '../public/images/gallery/' . $file);
 
+list($width, $height) = getimagesize('../public/images/gallery/' . $file);
+
+$thumb = imagecreatetruecolor($newwidth, $newheight);
+$source = imagecreatefrompng('../public/images/gallery/' . $file);
+
+imagecopyresampled($thumb, $source, 0, 0, 0, 0, 500, 500, $width, $height);
+
+imagepng($thumb, '../public/images/gallery/' . $file);
+
 $gallery = new Gallery();
 $gallery->addImages($_SESSION['id'], $file);
 
@@ -56,5 +65,5 @@ for ($i= 0; $i < count($img); $i++)
 	echo "</div>";
 }
 imagedestroy($src);
-imagedestroy($dest);
+imagedestroy($dst);
 ?>
