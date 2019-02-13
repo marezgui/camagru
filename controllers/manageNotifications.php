@@ -11,8 +11,14 @@ if (isAjax())
 {
 	$userManager = new UserManager();
 	if (isset($_POST['activate']))
+	{
 		$userManager->updateNotifications($_SESSION['login'], 1);
+		$_SESSION['notifications'] = 1;
+	}
 	else
+	{
 		$userManager->updateNotifications($_SESSION['login'], 0);
+		$_SESSION['notifications'] = 0;
+	}
 	die();
 }

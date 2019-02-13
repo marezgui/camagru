@@ -23,8 +23,19 @@
 								<span class="date"><?= $img[$i]['date'] ?></span>
 							</div>
 							<form id='f-<?= $img[$i]['id'] ?>' method="POST" action="/camagru/controllers/galleryLike.php">
-								<a href="javascript:{}" class="like" onclick="like(document.querySelector('#f-<?= $img[$i]['id'] ?>'), document.querySelector('#l-<?= $img[$i]['id'] ?>'));"> 
-									
+								<?php 
+									if (isset($_SESSION['login'])) 
+									{ 
+								?> 
+										<a href="javascript:{}" class="like" onclick="like(document.querySelector('#f-<?= $img[$i]['id'] ?>'), document.querySelector('#l-<?= $img[$i]['id'] ?>'));"> 
+								<?php 
+									} else 
+									{  
+								?>	
+										<a href="javascript:{}" class="like" >
+								<?php
+									} 
+								?> 
 									<span id='l-<?= $img[$i]['id'] ?>'><i class='<?php echo likeStatus($_SESSION['id'], $img[$i]['id']) ? "fas fa-heart" : "far fa-heart";?>' ></i> <?= getLikes($img[$i]['id']) ?></span>
 									
 									<input type="hidden" name="like" value="like">
