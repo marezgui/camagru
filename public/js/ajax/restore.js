@@ -16,7 +16,7 @@ form.addEventListener('submit', function (e){
 		{
 			let postback = this.responseText;
 
-			alert(postback.length);
+			//alert(postback.length);
 			if (postback.length == 6)
 			{
 				document.location.href = "../index.php";

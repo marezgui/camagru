@@ -64,7 +64,7 @@
 	</section>
 </section>
 
-<script src="../public/js/AjaxManage.js"></script>
+<script src="../public/js/ajax/manage.js"></script>
 
 <?php 
 	$content = ob_get_clean();

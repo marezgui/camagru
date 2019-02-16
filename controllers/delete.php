@@ -1,9 +1,6 @@
 <?php
-
-require $_SERVER['DOCUMENT_ROOT'] . '/camagru/controllers/session.php'; 
-require $_SERVER['DOCUMENT_ROOT'] . '/camagru/models/Gallery.php';
-
-ob_start();
+	require $_SERVER['DOCUMENT_ROOT'] . '/camagru/controllers/session.php'; 
+	require $_SERVER['DOCUMENT_ROOT'] . '/camagru/models/Gallery.php';
 
 $id = $_POST["id_image"];
 
@@ -14,7 +11,6 @@ $gallery->delImages($id);
 
 $img = $gallery->getUserImage($_SESSION['login']);
 
-
 for ($i= 0; $i < count($img); $i++)
 {
 	echo "<div class='container'>";
@@ -22,4 +18,3 @@ for ($i= 0; $i < count($img); $i++)
 	echo "<button class='btn' id='" . $img[$i]['path'] . "'>Supprimer</button>";
 	echo "</div>";
 }
-?>

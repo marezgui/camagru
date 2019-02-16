@@ -103,5 +103,3 @@ if (isAjax())
 			echo "Tous les champs doivent être remplis.";
 	die();
 }
-?>
-

@@ -153,3 +153,29 @@ img
 		display: inline-block;
 	}
 }
+
+@media screen and (max-width: 400px) 
+{
+	.navigation_diapo
+	{ 
+		width: 310px;
+		height: 200px;
+	}
+}
+
+@media screen and (max-width: 360px) 
+{
+	.navigation_diapo
+	{ 
+		width: 200px;
+		height: 180px;
+	}
+
+	.navigation_diapo li a
+	{
+		width:80px;
+		margin:0 1px;
+		height:40px;
+		display: inline-block;
+	}
+}

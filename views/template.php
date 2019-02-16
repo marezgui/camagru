@@ -9,31 +9,18 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <link rel="stylesheet" href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/public/css/template.css' ?>" />
         <link rel="stylesheet" href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/public/css/gallery.css' ?>" />
         <link rel="stylesheet" href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/public/css/montage.css' ?>" />
         <link rel="icon" type="image/png" href="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/public/images/favicon.ico' ?>" sizes="32x32" />
         
+        
+        <script src="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/public/js/template.js' ?>"></script>
+        <script src="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/public/js/ajax/getXHR.js' ?>"></script>
+
         <title><?= $title ?></title>
-        <script type="text/javascript">
-            function highlightCurrent() {
-                 const curPage = document.URL;
-                 const links = document.getElementsByTagName('a');
-                 for (let link of links) {
-                   if (link.href == curPage) {
-                     link.classList.add("active");
-                   }
-                 }
-               }
-               
-               document.onreadystatechange = () => {
-                 if (document.readyState === 'complete') {
-                   highlightCurrent()
-                 }
-               };
-        </script>
-        <script src="<?= '//' . $_SERVER['HTTP_HOST'] . '/camagru/public/js/oXHR.js' ?>"></script>
     </head>
         
     <body>

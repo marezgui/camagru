@@ -28,7 +28,7 @@
 	</form>
 </section>
 
-<script src="../public/js/AjaxInscription.js"></script>
+<script src="../public/js/ajax/inscription.js"></script>
 
 <?php 
 	$content = ob_get_clean();

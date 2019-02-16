@@ -1,9 +1,6 @@
 <?php
-
-require $_SERVER['DOCUMENT_ROOT'] . '/camagru/controllers/session.php'; 
-require $_SERVER['DOCUMENT_ROOT'] . '/camagru/models/Gallery.php';
-
-ob_start();
+	require $_SERVER['DOCUMENT_ROOT'] . '/camagru/controllers/session.php'; 
+	require $_SERVER['DOCUMENT_ROOT'] . '/camagru/models/Gallery.php';
 
 $size = $_POST["size"];
 $dst_x = $_POST["dst_x"];
@@ -16,7 +13,10 @@ $dst_x = explode(',', $dst_x);
 $dst_y = explode(',', $dst_y);
 $filtre = explode(',', $filtre);
 
-$nbfiltre = count($filtre);
+if ($filtre[0] == "none")
+	$nbfiltre = 0;
+else
+	$nbfiltre = count($filtre);
 
 $filtre_array = array($size, $dst_x, $dst_y, $filtre);
 
@@ -41,6 +41,9 @@ while ($i < $nbfiltre)
 	$i++;
 }
 
+$newwidth = 500;
+$newheight= 500;
+
 imagepng($dst, '../public/images/gallery/' . $file);
 
 list($width, $height) = getimagesize('../public/images/gallery/' . $file);
@@ -48,9 +51,13 @@ list($width, $height) = getimagesize('../public/images/gallery/' . $file);
 $thumb = imagecreatetruecolor($newwidth, $newheight);
 $source = imagecreatefrompng('../public/images/gallery/' . $file);
 
-imagecopyresampled($thumb, $source, 0, 0, 0, 0, 500, 500, $width, $height);
+imagecopyresampled($thumb, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
 
 imagepng($thumb, '../public/images/gallery/' . $file);
+
+if ($nbfiltre)
+	imagedestroy($src);
+imagedestroy($dst);
 
 $gallery = new Gallery();
 $gallery->addImages($_SESSION['id'], $file);
@@ -59,11 +66,9 @@ $img = $gallery->getUserImage($_SESSION['login']);
 
 for ($i= 0; $i < count($img); $i++)
 {
-	echo "<div class='container'>";
-	echo "<img src='/camagru/public/images/gallery/" . $img[$i]['path'] . "' />";
-	echo "<button class='btn' id='" . $img[$i]['path'] . "'>Supprimer</button>";
-	echo "</div>";
+	echo 
+		"<div class='container'>
+			<img src='/camagru/public/images/gallery/" . $img[$i]['path'] . "' />
+			<button class='btn' id='" . $img[$i]['path'] . "'>Supprimer</button>
+		</div>";
 }
-imagedestroy($src);
-imagedestroy($dst);
-?>

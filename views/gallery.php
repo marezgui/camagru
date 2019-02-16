@@ -113,9 +113,7 @@
 		</div>
 </section>
 
-<script src="../public/js/oXHR.js"></script>
-<script src="../public/js/AjaxLike.js"></script>
-<script src="../public/js/AjaxComment.js"></script>
+<script src="../public/js/ajax/gallery.js"></script>
 <script src="../public/js/modals.js"></script>
 
 <?php 

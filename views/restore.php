@@ -17,7 +17,7 @@
 	</form>
 </section>
 
-<script src="../public/js/AjaxRestore.js"></script>
+<script src="../public/js/ajax/restore.js"></script>
 
 <?php 
 	$content = ob_get_clean();

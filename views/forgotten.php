@@ -12,7 +12,7 @@
 	</form>
 </section>
 
-<script src="../public/js/AjaxForgotten.js"></script>
+<script src="../public/js/ajax/forgotten.js"></script>
 
 <?php 
 	$content = ob_get_clean();

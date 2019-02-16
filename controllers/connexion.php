@@ -2,7 +2,6 @@
 	require $_SERVER['DOCUMENT_ROOT'] . '/camagru/controllers/session.php';
 	require $_SERVER['DOCUMENT_ROOT'] . '/camagru/models/UserManager.php';
 
-
 function isAjax()
 {
 	return (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && (strtolower(getenv('HTTP_X_REQUESTED_WITH')) === 'xmlhttprequest'));

@@ -20,7 +20,7 @@
 	</form>
 </section>
 
-<script src="../public/js/AjaxConnexion.js"></script>
+<script src="../public/js/ajax/connexion.js"></script>
 
 <?php 
 	$content = ob_get_clean();
