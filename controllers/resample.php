@@ -2,12 +2,7 @@
 	require $_SERVER['DOCUMENT_ROOT'] . '/camagru/controllers/session.php'; 
 	require $_SERVER['DOCUMENT_ROOT'] . '/camagru/models/Gallery.php';
 
-function isAjax()
-{
-	return (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && (strtolower(getenv('HTTP_X_REQUESTED_WITH')) === 'xmlhttprequest'));
-}
-
-if (isAjax())
+if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
 	$size = $_POST["size"];
 	$dst_x = $_POST["dst_x"];
@@ -79,5 +74,4 @@ if (isAjax())
 				<button class='btn' id='" . $img[$i]['path'] . "'>Supprimer</button>
 			</div>";
 	}
-	die();
 }
