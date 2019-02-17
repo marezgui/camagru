@@ -6,8 +6,8 @@
 
 <section id="montage-wrap">
 	<main id="camera" >
-		<video id="video"></video>
-		<canvas width="500" height="500" id="canvas"></canvas>		
+		<video id="video" width="372" height="334"></video>
+		<canvas id="canvas" width="372" height="334"></canvas>		
 		<button id="take" class="take"><i class="fas fa-camera"></i> Prendre une photo</button>
 		<div id="filter-qte">
 			<button class="take" id="addfiltre"><i class="fas fa-plus"></i> Ajouter</button>
@@ -62,7 +62,10 @@
 	?>
 </aside>
 
-<script src="/camagru/public/js/montage.js"></script>
+<script src="/camagru/public/js/montage/montage.js"></script>
+<script src="/camagru/public/js/montage/filtre.js"></script>
+<script src="/camagru/public/js/montage/mouse.js"></script>
+<script src="/camagru/public/js/montage/upload.js"></script>
 <script src="/camagru/public/js/ajax/montage.js"></script>
 
 <?php 
